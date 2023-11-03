@@ -366,5 +366,4 @@ ECHO Minor Power Tweaks...
 POWERCFG -h off >NUL 2>&1
 
 copy "C:\Windows\Temp\Tweaker.bat" "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" >NUL 2>&1
-
 shutdown -r -t 5
