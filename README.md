@@ -17,6 +17,17 @@ Set-ProcessMitigation -System -Enable CFG
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/AveYo/fox/main/Edge_Removal.bat'))
 ```
 #
+## Some extra tweaks that may help a bit in your performace
+* [Best Win32PrioritySeparation value](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#the-truth-behind-ambiguous-values)
+* [XHCI Interrupt Moderation (IMOD)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#xhci-interrupt-moderation-imod)
+* [Raise the Clock Interrupt Frequency (Timer Resolution)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#raise-the-clock-interrupt-frequency-timer-resolution)
+* [Message Signaled Interrupts](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#message-signaled-interrupts)
+* [GPU and DirectX Graphics Kernel | AutoGpuAffinity](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#gpu-and-directx-graphics-kernel)
+
+* **[Hone](https://hone.gg/) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
+#
+
 ### Credits for some tweaks
 * Melody
 * Felipetweaks
+* AMITVX
