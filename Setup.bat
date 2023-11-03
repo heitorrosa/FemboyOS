@@ -188,6 +188,7 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privi
 ECHO Enabling OptionalFeature Graphics Tool...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL 2>&1
+ECHO "Install DirectX Dependencies..." & pause>nul
 
 ECHO Installing System Dependencies...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
@@ -208,6 +209,7 @@ ECHO "Install .NET Framework 4.8.1 Dependencies..." & pause>nul
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/NDP481-Web.exe -OutFile "C:\Windows\Temp\netframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
+pause
 
 ECHO Updating Ngen...
 POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
@@ -332,6 +334,7 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstall
 
 REM Disable UBPM Trace Session
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop UBPM" >NUL 2>&1
+pause
 
 ECHO Optimizing your Network Adapter...
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WmmPolicy" /v EnableThroughputPolicy /t REG_DWORD /d 1 /f >NUL 2>&1
@@ -380,3 +383,6 @@ REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Pro
 
 ECHO Minor Power Tweaks...
 POWERCFG -h off >NUL 2>&1
+
+pause
+shutdown -r -t 0
