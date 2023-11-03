@@ -428,4 +428,4 @@ REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Pro
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Identifying Network" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
 
 ECHO Minor Power Tweaks...
-POWERCFG -h off
+POWERCFG -h off >NUL 2>&1
