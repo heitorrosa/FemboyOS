@@ -627,8 +627,8 @@ REG ADD "HKLM\System\CurrentControlSet\Services\mrxsmb" /v "Start" /t REG_DWORD 
 REG ADD "HKLM\System\CurrentControlSet\Services\Mrxsmb10" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 :: SMB 2.0 MiniRedirector (W8Default=3)
 REG ADD "HKLM\System\CurrentControlSet\Services\Mrxsmb20" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
-:: Disabling breaks laptop keyboards and PS2 keyboards (W8Default=0)
-REG ADD "HKLM\System\CurrentControlSet\Services\msisadrv" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+:: Prevent breaks on laptop keyboards and PS2 keyboards (W8Default=0)
+REG ADD "HKLM\System\CurrentControlSet\Services\msisadrv" /v "Start" /t REG_DWORD /d "2" /f >NUL 2>&1
 :: Link-Layer Discovery Protocol (W8Default=3)
 REG ADD "HKLM\System\CurrentControlSet\Services\MsLldp" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 :: System Management BIOS Driver (W8Default=1)
