@@ -75,5 +75,6 @@ REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\DriverSearching" /v "Sea
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/Setup.bat -OutFile "C:\Windows\Temp\Setup.bat" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/Tweaker.bat -OutFile "C:\Windows\Temp\Tweaker.bat" >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/MinSudo.exe -OutFile "C:\Windows\Temp\minsudo.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\Setup.bat" >NUL 2>&1
