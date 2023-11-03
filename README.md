@@ -28,6 +28,6 @@ powershell iex ((New-Object System.Net.WebClient).DownloadString('https://raw.gi
 ## **[Hone](https://github.com/auraside/Hone) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
 
 ### Credits for some tweaks
-* Melody
+* Melody [(Provided the raw guide without the Tweaker.bat)](https://www.youtube.com/embed/F_4BPuqn0_o)
 * Felipetweaks
 * AMITVX
