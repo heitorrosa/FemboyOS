@@ -227,7 +227,6 @@ pause>nul
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
-pause
 
 ECHO Updating Ngen...
 POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
