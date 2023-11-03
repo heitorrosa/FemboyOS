@@ -322,6 +322,66 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\Schedule" /v Start /t REG_DWORD 
 REM Set the dependencies for the NlaSvc service to NSI, RpcSs, TcpIp, Dhcp, and LicenseManager
 sc config NlaSvc DependOnService=NSI RpcSs TcpIp Dhcp LicenseManager
 
+sc config TrustedInstaller start=demand >NUL 2>&1
+sc start TrustedInstaller >NUL 2>&1
+
+REM Disable Cellcore Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop Cellcore" >NUL 2>&1
+
+REM Disable Circular Kernel Context Logger Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop Circular Kernel Context Logger" >NUL 2>&1
+
+REM Disable CloudExperienceHostOobe Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop CloudExperienceHostOobe" >NUL 2>&1
+
+REM Disable DiagLog Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop DiagLog" >NUL 2>&1
+
+REM Disable Diagtrack-Listener Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop Diagtrack-Listener" >NUL 2>&1
+
+REM Disable EventLog-Security Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop EventLog-Security" >NUL 2>&1
+
+REM Disable Microsoft-Windows-Rdp-Graphics-RdpIdd-Trace Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop Microsoft-Windows-Rdp-Graphics-RdpIdd-Trace" >NUL 2>&1
+
+REM Disable RadioMgr Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop RadioMgr" >NUL 2>&1
+
+REM Disable Netcore Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop Netcore" >NUL 2>&1
+
+REM Disable EventLog-Application Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop EventLog-Application" >NUL 2>&1
+
+REM Disable LwtNetLog Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop LwtNetLog" >NUL 2>&1
+
+REM Disable EventLog-System Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop EventLog-System" >NUL 2>&1
+
+REM Disable NtfsLog Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop NtfsLog" >NUL 2>&1
+
+REM Disable Tpm Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop Tpm" >NUL 2>&1
+
+REM Disable WdiContextLog Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop WdiContextLog" >NUL 2>&1
+
+REM Disable WiFiDriverIHVSession Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop WiFiDriverIHVSession" >NUL 2>&1
+
+REM Disable WiFiSession Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop WiFiSession" >NUL 2>&1
+
+REM Disable WinPhoneCritical Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop WinPhoneCritical" >NUL 2>&1
+
+REM Disable UBPM Trace Session
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop UBPM" >NUL 2>&1
+
 ECHO Optimizing your Network Adapter...
 set dependencies=2
 
