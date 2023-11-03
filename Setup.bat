@@ -334,8 +334,6 @@ REM Disable UBPM Trace Session
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --TrustedInstaller --Privileged logman stop UBPM" >NUL 2>&1
 
 ECHO Optimizing your Network Adapter...
-set dependencies=2
-
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WmmPolicy" /v EnableThroughputPolicy /t REG_DWORD /d 1 /f >NUL 2>&1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WmmPolicy" /v TcpInboundThroughputLevel /t REG_DWORD /d 3 /f >NUL 2>&1
 POWERSHELL netsh int tcp set security profiles=disable >NUL 2>&1
@@ -357,8 +355,6 @@ REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connec
 // shutdown -r -t 0
 
 :reboot2
-set dependencies=3
-
 sc start sppsvc >NUL 2>&1
 sc start OneSyncSvc_1a112 >NUL 2>&1
 sc start SgrmBroker >NUL 2>&1
