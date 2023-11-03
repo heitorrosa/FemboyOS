@@ -356,6 +356,7 @@ netsh interface ipv4 set address "Ethernet" static <IPv4 address> <subnet mask> 
 REM Disable automatic proxy detection
 REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" /v DetectAutomatically /t REG_DWORD /d 0 /f >NUL 2>&1
 // shutdown -r -t 0
+pause
 
 :reboot2
 sc start sppsvc >NUL 2>&1
