@@ -21,6 +21,8 @@ exit
 
 rmdir C:\Windows\system32\adminrightstest >NUL 2>&1
 
+POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
+
 REM Disabling User Account Control...
 REG ADD "HKLM\System\CurrentControlSet\Services\Appinfo" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableVirtualization" /t REG_DWORD /d "0" /f >NUL 2>&1
