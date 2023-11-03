@@ -2824,5 +2824,6 @@ REG ADD "HKLM\System\CurrentControlSet\Services\LanmanWorkstation\Parameters" /F
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\I/O System" /F /V "PassiveIntRealTimeWorkerCount" /T REG_DWORD /d %NUMBER_OF_PROCESSORS% >NUL 2>&1
 BCDEDIT /set numproc %NUMBER_OF_PROCESSORS% >NUL 2>&1
 BCDEDIT /set maxproc Yes >NUL 2>&1
+
 pause
 shutdown -r -t 0
