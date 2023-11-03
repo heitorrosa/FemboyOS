@@ -204,22 +204,22 @@ POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL
 
 ECHO Installing System Dependencies...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe -OutFile "C:\Windows\Temp\DirectX.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\dxwebsetup.exe" >NUL 2>&1
 ECHO "Install VisualCpp Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://rebrand.ly/vcpp -OutFile "C:\Windows\Temp\VisualCpp.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/abbodi1406/vcredist/releases/download/v0.76.0/VisualCppRedist_AIO_x86_x64.exe -OutFile "C:\Windows\Temp\VisualCpp.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
 ECHO "Install XNAFramework Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.msi" >NUL 2>&1
 ECHO "Install .NET Framework 4.8.1 Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/NDP481-Web.exe -OutFile "C:\Windows\Temp\netframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
 
 ECHO Updating Ngen...
