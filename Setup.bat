@@ -1,5 +1,5 @@
 @ECHO OFF &SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
-title "GamingOS | System Setup"
+title "FemboyOS"
 cd /D "%~dp0"
 
 IF EXIST "C:\Windows\system32\adminrightstest" (
@@ -30,7 +30,7 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\thorium.exe" >NUL 2>&1
 
 ECHO Uninstalling Microsoft Edge Browser...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/Remove-Edge.exe -OutFile "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/Remove-Edge.exe -OutFile "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
 
 ECHO Installing OpenShell...
@@ -179,7 +179,7 @@ bcdedit /set allowedinmemorysettings 0x0 >NUL 2>&1
 bcdedit /set loadoptions "DISABLE-LSA-ISO,DISABLE-VBS" >NUL 2>&1
 bcdedit /set pciexpress forcedisable >NUL 2>&1
 bcdedit /set nx alwaysoff >NUL 2>&1
-bcdedit /set {current} description "GamingOS LTSC @heitor" >NUL 2>&1
+bcdedit /set {current} description "FemboyOS 21H1" >NUL 2>&1
 
 REM Disable Systemtray Windows Defender
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged taskkill /im SecurityHealthSystray.exe" >NUL 2>&1
@@ -191,7 +191,7 @@ POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL
 
 ECHO "Install DirectX Dependencies..." & pause>nul
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\DirectX.exe" >NUL 2>&1
 ECHO "Install VisualCpp Dependencies..." & pause>nul
 
@@ -201,12 +201,12 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
 ECHO "Install XNAFramework Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.msi" >NUL 2>&1
 ECHO "Install .NET Framework 4.8.1 Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/NDP481-Web.exe -OutFile "C:\Windows\Temp\netframework.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/NDP481-Web.exe -OutFile "C:\Windows\Temp\netframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
 pause
 
