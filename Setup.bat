@@ -246,11 +246,11 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net6.exe" >NUL 2>&1
 ECHO.
 ECHO "Install NET Framwork and reboot your System, the batch file will continue itslef..."
 pause>nul
+set dependencies=1
+
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
-
-set dependencies=1
 
 :reboot1
 ECHO Updating Ngen...
