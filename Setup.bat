@@ -44,7 +44,6 @@ POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Alex313031
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\thorium.exe" >NUL 2>&1
 
 ECHO Uninstalling Microsoft Edge Browser...
-ECHO Installing Thorimum Browser...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/Remove-Edge.exe -OutFile "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
@@ -53,7 +52,7 @@ ECHO Installing OpenShell...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Open-Shell/Open-Shell-Menu/releases/download/v4.4.191/OpenShellSetup_4_4_191.exe -OutFile "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
-start https://cdn.discordapp.com/attachments/868975716035866624/1169724042341777439/image.png?ex=65567168&is=6543fc68&hm=bfa6f7e82df1c8d18a46cc467ccd53ffb4da16a1f6c03531a0acacd147a76297&
+start "https://cdn.discordapp.com/attachments/868975716035866624/1169724042341777439/image.png?ex=65567168&is=6543fc68&hm=bfa6f7e82df1c8d18a46cc467ccd53ffb4da16a1f6c03531a0acacd147a76297&"
 ECHO.
 ECHO "Press any key to continue after the fully Open-Shell installation..."
 pause>nul
