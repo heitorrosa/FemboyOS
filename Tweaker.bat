@@ -34,7 +34,6 @@ SC START AppInfo >NUL 2>&1
 SC START DeviceInstall >NUL 2>&1
 SC START Dhcp >NUL 2>&1
 
-:: Automatically settings static ip while Dhcp is enabled, thanks to Phlegm
 if "%INTERFACE%"=="" for /f "tokens=3,*" %%i in ('netsh int show interface^|find "Connected"') do set INTERFACE=%%j
 if "%IP%"=="" for /f "tokens=3 delims=: " %%i in ('netsh int ip show config name^="%INTERFACE%" ^| findstr "IP Address" ^| findstr [0-9]') do set IP=%%i
 if "%MASK%"=="" for /f "tokens=2 delims=()" %%i in ('netsh int ip show config name^="%INTERFACE%" ^| findstr /r "(.*)"') do for %%j in (%%i) do set MASK=%%j
