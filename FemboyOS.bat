@@ -22,6 +22,6 @@ exit
 rmdir C:\Windows\system32\adminrightstest >NUL 2>&1
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/Setup.bat -OutFile "C:\Windows\Temp\Setup.bat" >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/MinSudo.exe -OutFile "C:\Windows\Temp\minsudo.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/Setup.bat -OutFile "C:\Windows\Temp\Setup.bat" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/MinSudo.exe -OutFile "C:\Windows\Temp\minsudo.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged C:\Windows\Temp\Setup.bat" >NUL 2>&1
