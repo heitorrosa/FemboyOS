@@ -1,5 +1,5 @@
 @ECHO OFF &SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
-title "GamingOS | Initial Executor"
+title "FemboyOS"
 cd /D "%~dp0"
 
 IF EXIST "C:\Windows\system32\adminrightstest" (
