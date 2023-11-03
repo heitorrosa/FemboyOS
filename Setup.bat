@@ -61,7 +61,7 @@ ECHO.
 ECHO "Press any key to continue after the fully Open-Shell installation..."
 pause>nul
 
-ECHO Applying Basic Tweaks & Configurations
+ECHO "Applying Basic Tweaks & Configurations"
 REM Turn off Application Telemetry
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Telemetry" /v AllowTelemetry /t REG_DWORD /d 0 /f >NUL 2>&1
 
@@ -202,9 +202,11 @@ bcdedit /set nx alwaysoff >NUL 2>&1
 bcdedit /set {current} description "GamingOS LTSC @heitor" >NUL 2>&1
 
 REM Disable Systemtray Windows Defender
-taskmgr /0 /startup:disable MSASCuiL.exe >NUL 2>&1
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged taskkill /im SecurityHealthSystray.exe" >NUL 2>&1
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged del /f "C:\Windows\System32\SecurityHealthSystray" >NUL 2>&1
 
 ECHO Enabling OptionalFeature Graphics Tool...
+POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL 2>&1
 
 ECHO Installing System Dependencies...
