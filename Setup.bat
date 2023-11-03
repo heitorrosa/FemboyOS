@@ -207,47 +207,45 @@ POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL
 
 ECHO Installing System Dependencies...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe -OutFile "C:\Windows\Temp\DirectX.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\dxwebsetup.exe" >NUL 2>&1
 ECHO "Install VisualCpp Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://rebrand.ly/vcpp -OutFile "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1]
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://rebrand.ly/vcpp -OutFile "C:\Windows\Temp\VisualCpp.exe"
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
 ECHO "Install XNAFramework Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.exe" >NUL 2>&1
 ECHO "Install .NET 8 Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-8.0.0-rc.2-windows-x64-installer -OutFile "C:\Windows\Temp\net8.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-8.0.0-rc.2-windows-x64-installer -OutFile "C:\Windows\Temp\net8.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net8.exe" >NUL 2>&1
 ECHO "Install .NET 7 Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-7.0.13-windows-x64-installer -OutFile "C:\Windows\Temp\net7.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-7.0.13-windows-x64-installer -OutFile "C:\Windows\Temp\net7.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net7.exe" >NUL 2>&1
 ECHO "Install .NET 6 Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-6.0.24-windows-x64-installer -OutFile "C:\Windows\Temp\net6.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-6.0.24-windows-x64-installer -OutFile "C:\Windows\Temp\net6.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net6.exe" >NUL 2>&1
-ECHO.
-ECHO "Install NET Framwork and reboot your System, the batch file will continue itslef..."
+ECHO "Install .NET Framework 4.8.1 Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
-ECHO "Install .NET Framework 4.8.1 Dependencies..."
-pause>nul
+pause
 
 ECHO Updating Ngen...
 POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
