@@ -6,15 +6,15 @@ FemboyOS is an open-srouce custom Windows OS alternative based on Windows 10 IoT
 * [**Install Microsoft Store and XBOX Identify**](https://github.com/kkkgo/LTSC-Add-MicrosoftStore)
 #
 ### **Fix VALORANT Anticheat Block ([Control Flow Guard Disabled](https://support-valorant.riotgames.com/hc/en-us/articles/4406555340179-How-to-Enable-Exploit-Protection-and-Prevent-Error-Code-VAN9002))**
-* Paste it on `Powershell` **(Reboot your system after that)**
+* Paste it on `Win + R (Run)` **(Reboot your system after that)**
 ```ps1
-Set-ProcessMitigation -System -Enable CFG
+powershell Set-ProcessMitigation -System -Enable CFG
 ```
 #
 ### **Uninstall Microsoft Edge**
-* Paste it on `Powershell` **(Run again if you want to install it again)**
+* Paste it on `Win + R (Run)` **(Run again if you want to install it again)**
 ```ps1
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/AveYo/fox/main/Edge_Removal.bat'))
+powershell iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/AveYo/fox/main/Edge_Removal.bat'))
 ```
 #
 ## Some extra tweaks that may help a bit in your performace
