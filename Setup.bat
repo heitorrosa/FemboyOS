@@ -219,26 +219,8 @@ ECHO "Install XNAFramework Dependencies..."
 pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.exe"
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.exe" >NUL 2>&1
-ECHO "Install .NET 8 Dependencies..."
-pause>nul
-
-POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-8.0.0-rc.2-windows-x64-installer -OutFile "C:\Windows\Temp\net8.exe"
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net8.exe" >NUL 2>&1
-ECHO "Install .NET 7 Dependencies..."
-pause>nul
-
-POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-7.0.13-windows-x64-installer -OutFile "C:\Windows\Temp\net7.exe"
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net7.exe" >NUL 2>&1
-ECHO "Install .NET 6 Dependencies..."
-pause>nul
-
-POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-6.0.24-windows-x64-installer -OutFile "C:\Windows\Temp\net6.exe"
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net6.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.msi" >NUL 2>&1
 ECHO "Install .NET Framework 4.8.1 Dependencies..."
 pause>nul
 
