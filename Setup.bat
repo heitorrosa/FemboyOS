@@ -30,15 +30,18 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\thorium.exe" >NUL 2>&1
 
 ECHO Uninstalling Microsoft Edge Browser...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/Remove-Edge.exe -OutFile "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
+POWERSHELL -Command "Get-AppxPackage *Microsoft.MicrosoftEdge.Stable* | Remove-AppxPackage" && cd %PROGRAMFILES(X86)%\Microsoft\Edge\Application\8*\Installer && setup --uninstall --force-uninstall --system-level >NUL 2>&1
 
 ECHO Installing OpenShell...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Open-Shell/Open-Shell-Menu/releases/download/v4.4.191/OpenShellSetup_4_4_191.exe -OutFile "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/dependencies/OpenShell.exe -OutFile "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
-start https://cdn.discordapp.com/attachments/868975716035866624/1169724042341777439/image.png?ex=65567168&is=6543fc68&hm=bfa6f7e82df1c8d18a46cc467ccd53ffb4da16a1f6c03531a0acacd147a76297&
-ECHO.
+start https://github.com/heitorrosa/FemboyOS/blob/main/images/openshell.png
+
+ECHO Installing 7-Zip...
+POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/dependencies/7zip.exe -OutFile "C:\Windows\Temp\7zip.exe" >NUL 2>&1
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\7zip.exe /S" >NUL 2>&1
 pause
 
 ECHO "Applying Basic Tweaks & Configurations"
@@ -191,22 +194,17 @@ POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL
 
 ECHO "Install DirectX Dependencies..." & pause>nul
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/blob/main/dependencies/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\DirectX.exe" >NUL 2>&1
 ECHO "Install VisualCpp Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/abbodi1406/vcredist/releases/download/v0.76.0/VisualCppRedist_AIO_x86_x64.exe -OutFile "C:\Windows\Temp\VisualCpp.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
-ECHO "Install XNAFramework Dependencies..." & pause>nul
-
-POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.msi" >NUL 2>&1
 ECHO "Install .NET Framework 4.8.1 Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/NDP481-Web.exe -OutFile "C:\Windows\Temp\netframework.exe"
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/dependencies/netframework4.8.1.exe -OutFile "C:\Windows\Temp\netframework.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
 pause
 
@@ -218,7 +216,7 @@ POWERSHELL cd System32 >NUL 2>&1
 POWERSHELL DISM /Online /Cleanup-Image /StartComponentCleanup /Resetbase /Defer >NUL 2>&1
 
 ECHO Tweaking Services...
-start https://cdn.discordapp.com/attachments/868975716035866624/1169772859120422972/image.png?ex=65569ede&is=654429de&hm=22600fa3ab658c093e8273fdc2f384ad5993e40cb64083c762447767b8e3ac74&
+start https://github.com/heitorrosa/FemboyOS/blob/main/images/msconfig.png
 msconfig >NUL 2>&1
 ECHO.
 pause
