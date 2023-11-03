@@ -188,9 +188,8 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privi
 ECHO Enabling OptionalFeature Graphics Tool...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL 2>&1
-ECHO "Install DirectX Dependencies..." & pause>nul
 
-ECHO Installing System Dependencies...
+ECHO "Install DirectX Dependencies..." & pause>nul
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\dxwebsetup.exe" >NUL 2>&1
