@@ -340,19 +340,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WmmPolicy" /v EnableThroughput
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WmmPolicy" /v TcpInboundThroughputLevel /t REG_DWORD /d 3 /f >NUL 2>&1
 POWERSHELL netsh int tcp set security profiles=disable >NUL 2>&1
 POWERSHELL netsh int tcp set global autotuninglevel=experimental >NUL 2>&1
-netsh int tcp set supp intenret congestionprovider=newreno >NUL 2>&1
-POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Enabled -WeakHostRecive Enabled -ErrorAction SilentlyContinue >NUL 2>&1
+POWERSHELL netsh int tcp set supp internet congestionprovider=newreno >NUL 2>&1
 REG add "HKLM\SYSTEM\CurrentControlSet\Control" /v SvcHostSplitThresholdInKB /t REG_DWORD /d ffffffff /f >NUL 2>&1
 sc config nlasvc start=auto >NUL 2>&1
 sc start nlasvc >NUL 2>&1
-
-REM Disable IPv6
-netsh interface ipv6 set global disabled >NUL 2>&1
-
-REM Set the IPv4 interface metric
-netsh interface ipv4 set address "Ethernet" static <IPv4 address> <subnet mask> <gateway> 1 >NUL 2>&1
-
 REM Disable automatic proxy detection
 REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" /v DetectAutomatically /t REG_DWORD /d 0 /f >NUL 2>&1
 // shutdown -r -t 0
