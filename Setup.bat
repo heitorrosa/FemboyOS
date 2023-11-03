@@ -22,8 +22,6 @@ rmdir C:\Windows\system32\adminrightstest >NUL 2>&1
 POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
 REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f. >NUL 2>&1
 
-set dependencies=0
-
 if %dependencies%==0 (
   goto start
 )
