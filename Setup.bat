@@ -346,7 +346,6 @@ sc config nlasvc start=auto >NUL 2>&1
 sc start nlasvc >NUL 2>&1
 REM Disable automatic proxy detection
 REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" /v DetectAutomatically /t REG_DWORD /d 0 /f >NUL 2>&1
-// shutdown -r -t 0
 pause
 
 :reboot2
