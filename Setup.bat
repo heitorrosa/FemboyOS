@@ -27,10 +27,6 @@ POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Alex313031/Thorium-Win-AVX2/releases/latest/download/thorium_AVX2_mini_installer.exe -OutFile "C:\Windows\Temp\thorium.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\thorium.exe" >NUL 2>&1
 
-ECHO Uninstalling Microsoft Edge Browser...
-POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-POWERSHELL -Command "Get-AppxPackage *Microsoft.MicrosoftEdge.Stable* | Remove-AppxPackage" && cd %PROGRAMFILES(X86)%\Microsoft\Edge\Application\8*\Installer && setup --uninstall --force-uninstall --system-level >NUL 2>&1
-
 ECHO Installing OpenShell...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/dependencies/OpenShell.exe -OutFile "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
