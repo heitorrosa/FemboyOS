@@ -5,7 +5,7 @@ FemboyOS is an open-srouce custom Windows OS alternative based on Windows 10 IoT
   
 * [**Install Microsoft Store and XBOX Identify**](https://github.com/kkkgo/LTSC-Add-MicrosoftStore)
 #
-### **Patch VALORANT Anticheat Block ([Control Flow Guard Disabled](https://support-valorant.riotgames.com/hc/en-us/articles/4406555340179-How-to-Enable-Exploit-Protection-and-Prevent-Error-Code-VAN9002))**
+### **Fix VALORANT Anticheat Block ([Control Flow Guard Disabled](https://support-valorant.riotgames.com/hc/en-us/articles/4406555340179-How-to-Enable-Exploit-Protection-and-Prevent-Error-Code-VAN9002))**
 * Paste it on `Powershell` **(Reboot your system after that)**
 ```ps1
 Set-ProcessMitigation -System -Enable CFG
