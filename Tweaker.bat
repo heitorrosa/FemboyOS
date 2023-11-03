@@ -2807,14 +2807,6 @@ ECHO.
 goto :ending
 
 :ending
-ECHO.
-ECHO.
-ECHO Finished with tweaking
-ECHO Report feedbacks, end of script
-ECHO.
-ECHO.
-pause
-
 ECHO %NUMBER_OF_PROCESSORS% >NUL 2>&1
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /F /V "AdditionalCriticalWorkerThreads" /T REG_DWORD /d %NUMBER_OF_PROCESSORS% >NUL 2>&1
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /F /V "AdditionalDelayedWorkerThreads" /T REG_DWORD /d %NUMBER_OF_PROCESSORS% >NUL 2>&1
