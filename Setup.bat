@@ -50,7 +50,7 @@ ECHO Uninstalling Microsoft Edge Browser...
 ECHO Installing Thorimum Browser...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/Remove-Edge.exe -OutFile "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
 
 ECHO Installing OpenShell...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
@@ -203,7 +203,7 @@ bcdedit /set {current} description "GamingOS LTSC @heitor" >NUL 2>&1
 
 REM Disable Systemtray Windows Defender
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged taskkill /im SecurityHealthSystray.exe" >NUL 2>&1
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged del /f "C:\Windows\System32\SecurityHealthSystray" >NUL 2>&1
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged del /f C:\Windows\System32\SecurityHealthSystray" >NUL 2>&1
 
 ECHO Enabling OptionalFeature Graphics Tool...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
