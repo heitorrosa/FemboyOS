@@ -369,8 +369,7 @@ netsh interface ipv4 set address "Ethernet" static <IPv4 address> <subnet mask> 
 
 REM Disable automatic proxy detection
 REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" /v DetectAutomatically /t REG_DWORD /d 0 /f >NUL 2>&1
-
-shutdown -r -t 0 >NUL 2>&1
+shutdown -r -t 0
 
 :reboot2
 set dependencies=3
@@ -392,7 +391,7 @@ sc start UdkUserSvc_1a112 >NUL 2>&1
 sc start AppIDSvc >NUL 2>&1
 sc start ClipSVC >NUL 2>&1
 sc start NetSetupSvc >NUL 2>&1
-shutdown -r -t 0 >NUL 2>&1
+shutdown -r -t 0
 
 :reboot3
 REM Set the Network Location to Private for all networks
