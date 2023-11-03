@@ -2825,5 +2825,6 @@ REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\I/O System" /F /V
 BCDEDIT /set numproc %NUMBER_OF_PROCESSORS% >NUL 2>&1
 BCDEDIT /set maxproc Yes >NUL 2>&1
 
+move "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" "C:\Windows\Temp\" >NUL 2>&1
 pause
 shutdown -r -t 0
