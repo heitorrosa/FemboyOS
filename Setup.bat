@@ -47,25 +47,10 @@ POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Alex313031
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\thorium.exe" >NUL 2>&1
 
 ECHO Uninstalling Microsoft Edge Browser...
+ECHO Installing Thorimum Browser...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
-cd /d "%ProgramFiles(x86)%\Microsoft" >NUL 2>&1
-for /f "tokens=1 delims=\" %%i in ('dir /B /A:D "%ProgramFiles(x86)%\Microsoft\Edge\Application" ^| find "."') do (set "edge_chromium_package_version=%%i") >NUL 2>&1
-if defined edge_chromium_package_version (
-		EdgeWebView\Application\%edge_chromium_package_version%\Installer\setup.exe --uninstall --force-uninstall --msedgewebview --system-level --verbose-logging >NUL 2>&1
-		Edge\Application\%edge_chromium_package_version%\Installer\setup.exe --uninstall --force-uninstall --msedge --system-level --verbose-logging >NUL 2>&1
-		EdgeCore\%edge_chromium_package_version%\Installer\setup.exe --uninstall --force-uninstall --msedge --system-level --verbose-logging >NUL 2>&1
-	) else (
-	)
-cd /d "%~dp0"
-
-for /f "tokens=8 delims=\" %%i in ('reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages" ^| findstr "Microsoft-Windows-Internet-Browser-Package" ^| findstr "~~"') do (set "edge_legacy_package_version=%%i") >NUL 2>&1
-if defined edge_legacy_package_version (
-		reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages\%edge_legacy_package_version%" /v Visibility /t REG_DWORD /d 1 /f >NUL 2>&1
-		reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages\%edge_legacy_package_version%\Owners" /va /f >NUL 2>&1
-		dism /online /Remove-Package /PackageName:%edge_legacy_package_version% >NUL 2>&1
-		POWERSHELL -Command "Get-AppxPackage *edge* | Remove-AppxPackage" >nul >NUL 2>&1
-	) else (
-	)
+POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/gamingos-ltsc-2021/raw/main/Remove-Edge.exe -OutFile "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
+POWERSHELL Start-Process -FilePath "C:\Windows\Temp\remove-edge.exe" >NUL 2>&1
 
 ECHO Installing OpenShell...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
