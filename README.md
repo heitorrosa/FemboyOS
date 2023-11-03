@@ -23,7 +23,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercon
 * [Raise the Clock Interrupt Frequency (Timer Resolution)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#raise-the-clock-interrupt-frequency-timer-resolution)
 * [Message Signaled Interrupts](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#message-signaled-interrupts)
 * [GPU and DirectX Graphics Kernel | AutoGpuAffinity](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#gpu-and-directx-graphics-kernel)
-
+* [Configure Audio Devices (LowAudioLatency)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-audio-devices)
+#
 * **[Hone](https://hone.gg/) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
 #
 
