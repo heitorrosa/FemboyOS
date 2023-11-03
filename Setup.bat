@@ -19,10 +19,9 @@ exit
 exit
 )
 rmdir C:\Windows\system32\adminrightstest >NUL 2>&1
-POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
-REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f >NUL 2>&1
 
-:start
+move "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\FemboyOS.bat" "C:\Windows\Temp" >NUL 2>&1
+
 ECHO Installing Thorimum Browser...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Alex313031/Thorium-Win-AVX2/releases/latest/download/thorium_AVX2_mini_installer.exe -OutFile "C:\Windows\Temp\thorium.exe" >NUL 2>&1
@@ -369,6 +368,8 @@ REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Pro
 
 ECHO Minor Power Tweaks...
 POWERCFG -h off >NUL 2>&1
+
+copy "C:\Windows\Temp\Tweaker.bat" "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" >NUL 2>&1
 
 pause
 shutdown -r -t 0
