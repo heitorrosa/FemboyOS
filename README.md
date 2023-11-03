@@ -25,8 +25,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercon
 * [GPU and DirectX Graphics Kernel (AutoGpuAffinity)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#gpu-and-directx-graphics-kernel)
 * [Configure Audio Devices (LowAudioLatency)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-audio-devices)
 #
-* **[Hone](https://hone.gg/) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
-#
+## **[Hone](https://github.com/auraside/Hone) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
 
 ### Credits for some tweaks
 * Melody
