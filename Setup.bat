@@ -217,7 +217,7 @@ POWERSHELL cd System32 >NUL 2>&1
 POWERSHELL DISM /Online /Cleanup-Image /StartComponentCleanup /Resetbase /Defer >NUL 2>&1
 
 ECHO Tweaking Services...
-start https://cdn.discordapp.com/attachments/868975716035866624/1169772859120422972/image.png?ex=65569ede&is=654429de&hm=22600fa3ab658c093e8273fdc2f384ad5993e40cb64083c762447767b8e3ac74& >NUL 2>&1
+start https://cdn.discordapp.com/attachments/868975716035866624/1169772859120422972/image.png?ex=65569ede&is=654429de&hm=22600fa3ab658c093e8273fdc2f384ad5993e40cb64083c762447767b8e3ac74&
 msconfig >NUL 2>&1
 ECHO.
 ECHO "Press any key to continue to the Services Tweaking process..." & pause>nul
