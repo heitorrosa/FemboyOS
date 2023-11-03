@@ -341,6 +341,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WmmPolicy" /v TcpInboundThroug
 POWERSHELL netsh int tcp set security profiles=disable >NUL 2>&1
 POWERSHELL netsh int tcp set global autotuninglevel=experimental >NUL 2>&1
 netsh int tcp set supp intenret congestionprovider=newreno >NUL 2>&1
+POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Enabled -WeakHostRecive Enabled -ErrorAction SilentlyContinue >NUL 2>&1
 REG add "HKLM\SYSTEM\CurrentControlSet\Control" /v SvcHostSplitThresholdInKB /t REG_DWORD /d ffffffff /f >NUL 2>&1
 sc config nlasvc start=auto >NUL 2>&1
