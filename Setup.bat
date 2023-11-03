@@ -27,9 +27,6 @@ set dependencies=0
 if %dependencies%==0 (
   goto start
 )
-if %dependencies%==1 (
-  goto reboot1
-)
 if %dependencies%==2 (
   goto reboot2
 )
@@ -246,13 +243,13 @@ POWERSHELL Start-Process -FilePath "C:\Windows\Temp\net6.exe" >NUL 2>&1
 ECHO.
 ECHO "Install NET Framwork and reboot your System, the batch file will continue itslef..."
 pause>nul
-set dependencies=1
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\netframework.exe" >NUL 2>&1
+ECHO "Install .NET Framework 4.8.1 Dependencies..."
+pause>nul
 
-:reboot1
 ECHO Updating Ngen...
 POWERSHELL Set-ExecutionPolicy Unrestricted >NUL 2>&1
 POWERSHELL cd C:\Windows\Microsoft.NET\Framework64\v4.0.30319 >NUL 2>&1
@@ -261,62 +258,62 @@ POWERSHELL cd System32 >NUL 2>&1
 POWERSHELL DISM /Online /Cleanup-Image /StartComponentCleanup /Resetbase /Defer >NUL 2>&1
 
 ECHO Tweaking Services...
-POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged msconfig" >NUL 2>&1
+msconfig >NUL 2>&1
 start https://cdn.discordapp.com/attachments/868975716035866624/1169772859120422972/image.png?ex=65569ede&is=654429de&hm=22600fa3ab658c093e8273fdc2f384ad5993e40cb64083c762447767b8e3ac74&
 ECHO.
 ECHO "Press any key to continue to the Services Tweaking process..."
 pause>nul
 
 REM Set the Start value for TrustedInstaller to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for AudioEndpointBuilder to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\AudioEndpointBuilder" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\AudioEndpointBuilder" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for Audiosrv to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Audiosrv" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Audiosrv" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for camsvc to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\camsvc" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\camsvc" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for DeviceInstall to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\DeviceInstall" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\DeviceInstall" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for Dhcp to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dhcp" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dhcp" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for LicenseManager to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\LicenseManager" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\LicenseManager" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for nsi to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\nsi" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\nsi" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for Power to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Power" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Power" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for seclogon to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\seclogon" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\seclogon" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for TabletInputService to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\TabletInputService" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\TabletInputService" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for WaaSMedicSvc to 4 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 4 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 4 /f  >NUL 2>&1
 
 REM Set the Start value for Winmgmt to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Winmgmt" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Winmgmt" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for Netman to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Netman" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Netman" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for NetSetupSvc to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\NetSetupSvc" /v Start /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\NetSetupSvc" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
 REM Set the Start value for Schedule to 4 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Schedule" /v Start /t REG_DWORD /d 4 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Schedule" /v Start /t REG_DWORD /d 4 /f  >NUL 2>&1
 
 REM Set the dependencies for the NlaSvc service to NSI, RpcSs, TcpIp, Dhcp, and LicenseManager
-sc config NlaSvc DependOnService=NSI RpcSs TcpIp Dhcp LicenseManager
+sc config NlaSvc DependOnService=NSI RpcSs TcpIp Dhcp LicenseManager  >NUL 2>&1
 
 sc config TrustedInstaller start=demand >NUL 2>&1
 sc start TrustedInstaller >NUL 2>&1
