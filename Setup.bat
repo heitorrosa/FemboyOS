@@ -54,8 +54,7 @@ POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/Open-Shell
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\OpenShell.exe" >NUL 2>&1
 start https://cdn.discordapp.com/attachments/868975716035866624/1169724042341777439/image.png?ex=65567168&is=6543fc68&hm=bfa6f7e82df1c8d18a46cc467ccd53ffb4da16a1f6c03531a0acacd147a76297&
 ECHO.
-ECHO "Press any key to continue after the fully Open-Shell installation..."
-pause>nul
+ECHO "Press any key to continue after the fully Open-Shell installation..." & pause>nul
 
 ECHO "Applying Basic Tweaks & Configurations"
 REM Turn off Application Telemetry
@@ -209,20 +208,17 @@ ECHO Installing System Dependencies...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\dxwebsetup.exe" >NUL 2>&1
-ECHO "Install VisualCpp Dependencies..."
-pause>nul
+ECHO "Install VisualCpp Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://rebrand.ly/vcpp -OutFile "C:\Windows\Temp\VisualCpp.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
-ECHO "Install XNAFramework Dependencies..."
-pause>nul
+ECHO "Install XNAFramework Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi -OutFile "C:\Windows\Temp\xnaframework.msi"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\xnaframework.msi" >NUL 2>&1
-ECHO "Install .NET Framework 4.8.1 Dependencies..."
-pause>nul
+ECHO "Install .NET Framework 4.8.1 Dependencies..." & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://go.microsoft.com/fwlink/?LinkId=2203304 -OutFile "C:\Windows\Temp\netframework.exe"
@@ -236,11 +232,10 @@ POWERSHELL cd System32 >NUL 2>&1
 POWERSHELL DISM /Online /Cleanup-Image /StartComponentCleanup /Resetbase /Defer >NUL 2>&1
 
 ECHO Tweaking Services...
+start https://cdn.discordapp.com/attachments/868975716035866624/1169772859120422972/image.png?ex=65569ede&is=654429de&hm=22600fa3ab658c093e8273fdc2f384ad5993e40cb64083c762447767b8e3ac74& >NUL 2>&1
 msconfig >NUL 2>&1
-start https://cdn.discordapp.com/attachments/868975716035866624/1169772859120422972/image.png?ex=65569ede&is=654429de&hm=22600fa3ab658c093e8273fdc2f384ad5993e40cb64083c762447767b8e3ac74&
 ECHO.
-ECHO "Press any key to continue to the Services Tweaking process..."
-pause>nul
+ECHO "Press any key to continue to the Services Tweaking process..." & pause>nul
 
 REM Set the Start value for TrustedInstaller to 2 (Hexadecimal)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
