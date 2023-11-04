@@ -23,6 +23,7 @@ powershell iex ((New-Object System.Net.WebClient).DownloadString('https://raw.gi
 ```
 #
 ## Some extra tweaks that may help a bit in your performace
+* [Calypto's Latency Guide](https://docs.google.com/document/d/1c2-lUJq74wuYK1WrA_bIvgb89dUN0sj8-hO3vqmrau4)
 * [Best Win32PrioritySeparation value](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#the-truth-behind-ambiguous-values)
 * [XHCI Interrupt Moderation (IMOD)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#xhci-interrupt-moderation-imod)
 * [Raise the Clock Interrupt Frequency (Timer Resolution)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#raise-the-clock-interrupt-frequency-timer-resolution)
