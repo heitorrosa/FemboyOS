@@ -375,6 +375,8 @@ powercfg /setacvalueindex scheme_current 7516b95f-f776-4464-8c53-06167f40cc99 3c
 powercfg /setacvalueindex scheme_current 54533251-82be-4824-96c1-47b60b740d00 0cc5b647-c1df-4637-891a-dec35c318583 100 >NUL 2>&1
 powercfg /setacvalueindex scheme_current 54533251-82be-4824-96c1-47b60b740d00 4d2b0152-7d5c-498b-88e2-34345392a2c5 5000 >NUL 2>&1
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 1 && powercfg /setactive scheme_current >NUL 2>&1
+powercfg -h OFF >NUL 2>&1
+REG ADD "HKLM\System\CurrentControlSet\Control\Power" /v "HibernateEnabled" /t REG_DWORD /d "0" /f >NUL 2>&1
 
 copy "C:\Windows\Temp\Tweaker.bat" "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" >NUL 2>&1
 shutdown -r -t 5
