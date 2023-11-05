@@ -251,8 +251,8 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\Power" /v Start /t REG_DWORD /d 
 REM Set the Start value for seclogon to 2 (Hexadecimal)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\seclogon" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
 
-REM Set the Start value for TabletInputService to 2 (Hexadecimal)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\TabletInputService" /v Start /t REG_DWORD /d 2 /f  >NUL 2>&1
+REM Set the Start value for TabletInputService to 4 (Hexadecimal)
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\TabletInputService" /v Start /t REG_DWORD /d 4 /f  >NUL 2>&1
 
 REM Set the Start value for WaaSMedicSvc to 4 (Hexadecimal)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 4 /f  >NUL 2>&1
