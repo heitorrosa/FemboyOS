@@ -18,7 +18,7 @@ FemboyOS is an open-srouce custom Windows OS alternative based on Windows 10 IoT
 powershell Set-ProcessMitigation -System -Enable CFG
 ```
 #
-### **Reinsatll Microsoft Edge**
+### **Reinsatall Microsoft Edge**
 * Paste it on `Win + R (Run)` **(Run it if you want to install it again)**
 ```ps1
 powershell iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/AveYo/fox/main/Edge_Removal.bat'))
