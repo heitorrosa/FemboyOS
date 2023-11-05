@@ -2,11 +2,13 @@
 FemboyOS is an open-srouce custom Windows OS alternative based on Windows 10 IoT Enterprise 2021 and has a lot of debloats and optimizations for your system, "automatcally" and with automatic updates on the installation.
 #
 [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-gray?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://drive.google.com/u/0/uc?id=1nXnoIo_7ojONVKiHKyC4-Awgcq9KjXJN&export=download)
+* [**Stock ISO for Windows 10 IoT Enterprise 21H2**](https://bafybeicfku5j343hn3h6qj3l4fjqj5xu5542xhhhcnt6ivhduxp4ldu7re.ipfs.dweb.link/?filename=en-us_windows_10_iot_enterprise_ltsc_2021_x64_dvd_257ad90f.iso) (Required for the raw installation video)
 #
 ### **Installation Video**
 *soon*
 #
-* [**Stock ISO for Windows 10 IoT Enterprise 21H2**](https://bafybeicfku5j343hn3h6qj3l4fjqj5xu5542xhhhcnt6ivhduxp4ldu7re.ipfs.dweb.link/?filename=en-us_windows_10_iot_enterprise_ltsc_2021_x64_dvd_257ad90f.iso) (Required for the raw installation video)
+### **Installing NVIDIA Display Drivers**
+*soon*
 # 
 ### [**Install Microsoft Store and XBOX Identify**](https://github.com/kkkgo/LTSC-Add-MicrosoftStore)
 #
