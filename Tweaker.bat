@@ -2823,5 +2823,5 @@ BCDEDIT /set numproc %NUMBER_OF_PROCESSORS% >NUL 2>&1
 BCDEDIT /set maxproc Yes >NUL 2>&1
 sc config KeyIso start= demand
 
-shutdown -r -t 5
 move "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" "C:\Windows\Temp\" >NUL 2>&1
+shutdown -r -t 5
