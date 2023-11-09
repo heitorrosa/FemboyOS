@@ -188,20 +188,20 @@ REM Disable Systemtray Windows Defender
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged taskkill /im SecurityHealthSystray.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged del /f C:\Windows\System32\SecurityHealthSystray" >NUL 2>&1
 
-ECHO Enabling OptionalFeature Graphics Tool...
+ECHO Enabling Graphics Tool OpitionalFeature...
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Enable-WindowsOptionalFeature -Online -FeatureName GraphicsTools >NUL 2>&1
 
-ECHO "Install DirectX Dependencies..." & pause>nul
+ECHO "Install DirectX Dependencies... (Press Enter to Continue)" & pause>nul
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/dependencies/directx.exe -OutFile "C:\Windows\Temp\DirectX.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\DirectX.exe" >NUL 2>&1
-ECHO "Install VisualCpp Dependencies..." & pause>nul
+ECHO "Install VisualCpp Dependencies...  (Press Enter to Continue)" & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/abbodi1406/vcredist/releases/download/v0.76.0/VisualCppRedist_AIO_x86_x64.exe -OutFile "C:\Windows\Temp\VisualCpp.exe"
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe" >NUL 2>&1
-ECHO "Install .NET Framework 4.8.1 Dependencies..." & pause>nul
+ECHO "Install .NET Framework 4.8.1 Dependencies...  (Press Enter to Continue)" & pause>nul
 
 POWERSHELL $ProgressPreference-'SilentlyContinue' >NUL 2>&1
 POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa/FemboyOS/raw/main/dependencies/netframework4.8.1.exe -OutFile "C:\Windows\Temp\netframework.exe"
