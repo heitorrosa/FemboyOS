@@ -10,7 +10,7 @@ FemboyOS is an open-source custom Windows OS alternative based on Windows 10 IoT
 ### **Installing NVIDIA Display Drivers**
 *soon*
 # 
-### [**Install Microsoft Store and XBOX Identify**](https://github.com/kkkgo/LTSC-Add-MicrosoftStore)
+### [**Install Microsoft Store and XBOX Identify**](https://github.com/R-YaTian/LTSC-Add-MicrosoftStore-2021)
 #
 ### **Fix VALORANT Anticheat Block ([Control Flow Guard Disabled](https://support-valorant.riotgames.com/hc/en-us/articles/4406555340179-How-to-Enable-Exploit-Protection-and-Prevent-Error-Code-VAN9002))**
 * Paste it on `Win + R (Run)` **(Reboot your system after that)**
