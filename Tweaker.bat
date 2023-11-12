@@ -2814,7 +2814,8 @@ ECHO Report feedbacks, end of script
 ECHO.
 ECHO.
 
-ECHO Aditional Services Tweaks...
+:: ECHO Aditional Services Tweaks...
+
 
 ECHO %NUMBER_OF_PROCESSORS% >NUL 2>&1
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /F /V "AdditionalCriticalWorkerThreads" /T REG_DWORD /d %NUMBER_OF_PROCESSORS% >NUL 2>&1
