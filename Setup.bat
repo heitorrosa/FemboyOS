@@ -44,7 +44,7 @@ POWERSHELL Invoke-WebRequest -UseBasicParsing -Uri https://github.com/heitorrosa
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\7zip.exe /S" >NUL 2>&1
 pause
 
-ECHO "Applying Basic Tweaks & Configurations"
+ECHO Applying Basic Tweaks...
 REM Turn off Application Telemetry
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Telemetry" /v AllowTelemetry /t REG_DWORD /d 0 /f >NUL 2>&1
 
@@ -174,7 +174,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouclass\Parameters" /v MouseDat
 REM Set MouseDataQueueSize for kbdclass
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v KeyboardDataQueueSize /t REG_DWORD /d 0x10 /f >NUL 2>&1
 
-REM Bcdedit Tweaks
+ECHO BCDEdit Tweaks
 bcdedit /set isolatedcontext No >NUL 2>&1
 bcdedit /set vsmlauchtype Off >NUL 2>&1
 bcdedit /set disableelamdrivers Yes >NUL 2>&1
@@ -184,7 +184,7 @@ bcdedit /set pciexpress forcedisable >NUL 2>&1
 bcdedit /set nx alwaysoff >NUL 2>&1
 bcdedit /set {current} description "FemboyOS 21H1" >NUL 2>&1
 
-REM Disable Systemtray Windows Defender
+ECHO Disable Systemtray Windows Defender
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged taskkill /im SecurityHealthSystray.exe" >NUL 2>&1
 POWERSHELL Start-Process -FilePath "C:\Windows\Temp\minsudo.exe --System --Privileged del /f C:\Windows\System32\SecurityHealthSystray" >NUL 2>&1
 
@@ -344,6 +344,7 @@ sc start nlasvc >NUL 2>&1
 REM Disable automatic proxy detection
 REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" /v DetectAutomatically /t REG_DWORD /d 0 /f >NUL 2>&1
 
+ECHO Starting some aditional Services...
 sc start sppsvc >NUL 2>&1
 sc start OneSyncSvc_1a112 >NUL 2>&1
 sc start SgrmBroker >NUL 2>&1
@@ -362,7 +363,7 @@ sc start AppIDSvc >NUL 2>&1
 sc start ClipSVC >NUL 2>&1
 sc start NetSetupSvc >NUL 2>&1
 
-REM Set the Network Location to Private for all networks
+ECHO Setting the Network Location to Private for all networks
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Private" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Unidentified Network" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Identifying Network" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
