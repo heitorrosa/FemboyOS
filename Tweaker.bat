@@ -2813,6 +2813,9 @@ ECHO Finished with tweaking
 ECHO Report feedbacks, end of script
 ECHO.
 ECHO.
+
+ECHO Aditional Services Tweaks...
+
 ECHO %NUMBER_OF_PROCESSORS% >NUL 2>&1
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /F /V "AdditionalCriticalWorkerThreads" /T REG_DWORD /d %NUMBER_OF_PROCESSORS% >NUL 2>&1
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /F /V "AdditionalDelayedWorkerThreads" /T REG_DWORD /d %NUMBER_OF_PROCESSORS% >NUL 2>&1
@@ -2823,5 +2826,5 @@ REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\I/O System" /F /V
 :: BCDEDIT /set maxproc Yes >NUL 2>&1
 sc config KeyIso start= demand
 
-move "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" "C:\Windows\Temp\" >NUL 2>&1
 shutdown -r -t 5
+move "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Tweaker.bat" "C:\Windows\Temp\" >NUL 2>&1
