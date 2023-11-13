@@ -2743,9 +2743,9 @@ ECHO 0.0.0.0 youtube.cleverads.vn>>%windir%\system32\drivers\etc\hosts
 enter the following:
 fsutil behavior query disabledeletenotify
 ------------------------------------------
-NTFS DisableDeleteNotify = 0 - TRIM support is enabled for SSDs with NTFS
-NTFS DisableDeleteNotify = 1 - TRIM support is disabled for SSDs with NTFS
-NTFS DisableDeleteNotify is not currently set - TRIM support for SSDs with NTFS is not currently set, but will automatically be enabled if a SSD with NTFS is connected.
+:: NTFS DisableDeleteNotify = 0 - TRIM support is enabled for SSDs with NTFS
+:: NTFS DisableDeleteNotify = 1 - TRIM support is disabled for SSDs with NTFS
+:: NTFS DisableDeleteNotify is not currently set - TRIM support for SSDs with NTFS is not currently set, but will automatically be enabled if a SSD with NTFS is connected.
 
 ECHO.
 ECHO                    Script will now make questions, answer wisely!
