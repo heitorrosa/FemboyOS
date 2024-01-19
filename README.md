@@ -44,7 +44,7 @@ code
 4. Apply AMD tweaks for better perforamce (Open `cmd.exe` and paste it)
     
 ```bat
-code
+curl -g -k -L -# -o "C:\Windows\Temp\AMD.bat" "https://raw.githubusercontent.com/heitorrosa/FemboyOS/iotltsc/AMD.bat" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\AMD.bat
 ```
 </details>
 
