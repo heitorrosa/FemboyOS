@@ -436,16 +436,16 @@ echo                      !ESC![96mApplying System Configurations!ESC![0m
 
 :: XHCI Interrupt Moderation
 echo y | reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
-curl -g -k -L -# -o "C:\Windows\Temp\XHCI-Interrupt-Moderation.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/XHCI-Interrupt-Moderation.ps1" >NUL 2>&
+curl -g -k -L -# -o "C:\XHCI-Interrupt-Moderation.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/XHCI-Interrupt-Moderation.ps1" >NUL 2>&
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "XHCI Interrupt Moderation" /t REG_SZ /d "powershell C:\XHCI-Interrupt-Moderation.ps1" /f >NUL 2>&1
 
 :: Disable Driver Power-Saving
-curl -g -k -L -# -o "C:\Windows\Temp\Disable-Driver-Power-Saving.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/Disable-Driver-Power-Saving.ps1" >NUL 2>&1
+curl -g -k -L -# -o "C:\Disable-Driver-Power-Saving.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/Disable-Driver-Power-Saving.ps1" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Disable Driver Powersaving" /t REG_SZ /d "powershell C:\Disable-Driver-Powersaving.ps1" /f >NUL 2>&1
 
 :: DWM Realtime
-curl -g -k -L -# -o "C:\Windows\Temp\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DWM-Realtime.bat" >NUL 2>&1
-echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DWM Realtime" /t REG_SZ /d "C:\DWM-Realtime.bat" /f >NUL 2>&1
+curl -g -k -L -# -o "C:\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DWM-Realtime.bat" >NUL 2>&1
+echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DWM Realtime" /t REG_SZ /d "cmd C:\DWM-Realtime.bat" /f >NUL 2>&1
 
 :: AMIT Tweaks
 reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d "0" /f >NUL 2>&1
