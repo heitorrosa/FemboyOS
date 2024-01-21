@@ -435,8 +435,8 @@ echo.
 echo                      !ESC![96mApplying System Configurations!ESC![0m
 
 :: XHCI Interrupt Moderation
-echo y | reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
-curl -g -k -L -# -o "C:\XHCI-Interrupt-Moderation.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/XHCI-Interrupt-Moderation.ps1" >NUL 2>&
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
+curl -g -k -L -# -o "C:\XHCI-Interrupt-Moderation.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/XHCI-Interrupt-Moderation.ps1" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "XHCI Interrupt Moderation" /t REG_SZ /d "powershell C:\XHCI-Interrupt-Moderation.ps1" /f >NUL 2>&1
 
 :: Disable Driver Power-Saving
