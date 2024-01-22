@@ -2377,7 +2377,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control" /v SvcHostSplitThresholdInKB /t 
 
 :: FemboyOS Signatures
 reg add "HKCR\Directory\background\shell\Item2" /v "MUIVerb" /t REG_SZ /d "FemboyOS @ heitorrosa" /f >NUL 2>&1
-reg add "HKCR\Directory\background\shell\Item2\command" /ve /t REG_SZ /d "cmd" /f >NUL 2>&1
+reg add "HKCR\Directory\background\shell\Item2\command" /ve /t REG_SZ /d "C:\Windows\System32\Minsudo.exe -p cmd" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOrganization" /t REG_SZ /d "FemboyOS @heitorrosa" /f >NUL 2>&1
 
 shutdown -r -t 0
