@@ -31,11 +31,12 @@ echo                       !ESC![96mInstalling required packages!ESC![0m
 :: Installing Thorium
 curl -g -k -L -# -o "C:\Windows\Temp\Thorium.exe" "https://github.com/Alex313031/Thorium-Win-AVX2/releases/latest/download/thorium_AVX2_mini_installer.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\Thorium.exe /S" >NUL 2>&1
 
-:: Installing DirectX
-curl -g -k -L -# -o "C:\Windows\Temp\DirectX.exe" "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\DirectX.exe /Q" >NUL 2>&1
 
 :: Installing VisualCpp
-curl -g -k -L -# -o "C:\Windows\Temp\VisualCpp.exe" "https://aka.ms/vs/17/release/vc_redist.x64.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe /q /norestart" >NUL 2>&1
+curl -g -k -L -# -o "C:\Windows\Temp\VisualCpp.exe" "https://github.com/abbodi1406/vcredist/releases/download/v0.77.0/VisualCppRedist_AIO_x86_x64.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe /aiA " >NUL 2>&1
+
+:: Installing DirectX
+curl -g -k -L -# -o "C:\Windows\Temp\DirectX.exe" "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\DirectX.exe /Q" >NUL 2>&1
 
 :: Installing 7zip
 curl -g -k -L -# -o "C:\Windows\Temp\7zip.exe" "https://www.7-zip.org/a/7z2301-x64.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\7zip.exe /S" >NUL 2>&1
