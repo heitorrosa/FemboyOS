@@ -990,6 +990,7 @@ reg add "HKLM\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Dat
 reg add "HKLM\System\CurrentControlSet\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v "Start" /t REG_DWORD /d "0" /f > NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Start" /t REG_DWORD /d "0" /f > NUL 2>&1
 echo "" > C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl >NUL 2>&1
+reg delete delete "HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger" /f >NUL 2>&1
 
 :: Disable Telemetry Services
 sc stop EventLog
