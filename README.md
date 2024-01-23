@@ -17,12 +17,6 @@ FemboyOS is an open-source custom Windows OS alternative based on Windows 10 IoT
 <br><br>
 <img src="https://raw.githubusercontent.com/heitorrosa/FemboyOS/iotltsc/images/2NVChad.png" style="width:400px;height:480px;"></img>
 <br><br>
-  
-3. Apply NVIDIA tweaks for better perforamce (Open `cmd.exe` and paste it)
-  
-```bat
-code
-```
 </details>
 
 <details closed>
@@ -42,12 +36,6 @@ code
 <br><br>
 <img src="https://raw.githubusercontent.com/heitorrosa/FemboyOS/iotltsc/images/3AMDip.png" style="width:960px;height:514px;"></img>
 <br><br>
-4. Apply AMD tweaks for better perforamce (Open `cmd.exe` and paste it)
-
-    
-```bat
-curl -g -k -L -# -o "C:\Windows\Temp\AMD.bat" "https://raw.githubusercontent.com/heitorrosa/FemboyOS/iotltsc/AMD.bat" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\AMD.bat
-```
 </details>
 
 ## Extra Tweaks
