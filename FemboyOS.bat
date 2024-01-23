@@ -1155,7 +1155,7 @@ REG ADD "HKCU\SOFTWARE\Sysinternals\Process Explorer\ProcessColumns" /v "14" /t 
 REG ADD "HKCU\SOFTWARE\Sysinternals\Process Explorer\ProcessColumns" /v "15" /t REG_DWORD /d "70" /f >NUL 2>&1
 REG ADD "HKCU\SOFTWARE\Sysinternals\Process Explorer\ProcessColumns" /v "16" /t REG_DWORD /d "44" /f >NUL 2>&1
 REG ADD "HKCU\SOFTWARE\Sysinternals\Process Explorer\VirusTotal" /v "VirusTotalTermsAccepted" /t REG_DWORD /d "1" /f >NUL 2>&1
-reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects /v VisualFXSetting /t REG_DWORD /d 2 /f >NUL 2>&1
+reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects /v VisualFXSetting /t REG_DWORD /d 3 /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoWelcomeScreen /t REG_DWORD /d 1 /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoWelcomeScreen /t REG_DWORD /d 1 /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v DisableLockScreenAppNotifications /t REG_DWORD /d 1 /f >NUL 2>&1
@@ -2376,6 +2376,31 @@ devmanview /disable "Root Print Queue" >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f >NUL 2>&1
 reg add "HKLM\SYSTEM\CurrentControlSet\Control" /v SvcHostSplitThresholdInKB /t REG_DWORD /d ffffffff /f >NUL 2>&1
 :: reg add "HKLM\System\CurrentControlSet\Services\" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\aspnet_state" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\WpnUserService" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\WpnService" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\FontCache" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Wcmsvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\TokenBroker" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Themes" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\BthAvctpSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Imhosts" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\SgrmBroker" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\SENS" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\StorSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\sppsvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\ShellHWDetection" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\SamSs" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\RmSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\PlugPlay" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\iphlpsvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Dnscache" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\TrkWks" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\DispBrokerDesktopSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\DumSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\CDPUserSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\EventSystem" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\KeyIso" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 
 :: FemboyOS Signatures
 reg add "HKCR\Directory\background\shell\Item2" /v "MUIVerb" /t REG_SZ /d "FemboyOS @ heitorrosa" /f >NUL 2>&1
