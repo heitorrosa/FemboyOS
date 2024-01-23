@@ -2398,11 +2398,14 @@ reg add "HKLM\System\CurrentControlSet\Services\Dnscache" /v "Start" /t REG_DWOR
 reg add "HKLM\System\CurrentControlSet\Services\TrkWks" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\DispBrokerDesktopSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\DumSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\DusmSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\CDPUserSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\EventSystem" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\KeyIso" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\TabletInputService" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
-
+reg add "HKLM\System\CurrentControlSet\Services\AppXSvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\WinHttpAutoProxySvc" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+:: reg add "HKLM\System\CurrentControlSet\Services\Schedule" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 
 :: FemboyOS Signatures
 reg add "HKCR\Directory\background\shell\Item2" /v "MUIVerb" /t REG_SZ /d "FemboyOS @ heitorrosa" /f >NUL 2>&1
