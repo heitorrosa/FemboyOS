@@ -29,7 +29,7 @@ echo     !ESC![95m You can get the code from this script at @heitorrosa at Githu
 echo.
 echo                       !ESC![96mInstalling required packages!ESC![0m
 :: Installing Thorium
-curl -g -k -L -# -o "C:\Windows\Temp\Thorium.exe" "https://github.com/Alex313031/Thorium-Win-AVX2/releases/latest/download/thorium_AVX2_mini_installer.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\Thorium.exe /S" >NUL 2>&1
+curl -g -k -L -# -o "C:\Windows\Temp\Thorium.exe" "https://github.com/Alex313031/Thorium-Win/releases/latest/download/thorium_AVX2_mini_installer.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\Thorium.exe /S" >NUL 2>&1
 
 
 :: Installing VisualCpp
