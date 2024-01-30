@@ -448,6 +448,13 @@ echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Disabl
 curl -g -k -L -# -o "C:\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DWM-Realtime.bat" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DWM Realtime" /t REG_SZ /d "C:\DWM-Realtime.bat" /f >NUL 2>&1
 
+:: Configure Server 2022
+reg add "HKLM\Software\Microsoft\ServerManager" /v "DoNotOpenServerManagerAtLogon" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKCU\Software\Microsoft\ServerManager" /v "CheckedUnattendLaunchSetting" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableCAD" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Reliability" /v "ShutdownReasonUI" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v "ComplexityRequired" /t REG_DWORD /d "0" /f >NUL 2>&1
+
 :: AMIT Tweaks
 reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d "0" /f >NUL 2>&1
 reg add "HKCU\SOFTWARE\Classes\WOW6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d "0" /f >NUL 2>&1
