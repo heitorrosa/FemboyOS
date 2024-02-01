@@ -212,10 +212,10 @@ powershell (new-object System.Net.WebClient).DownloadFile('https://github.com/Ma
 powershell (new-object System.Net.WebClient).DownloadFile('https://github.com/Matishzz/DCH-ControlPanel/releases/download/nvcplui/nvcplui.exe','%appdata%\nvcplui.exe') >NUL 2>&1
 curl -g -k -L -# -o "C:\Windows\Temp\nvidiaProfileInspector.exe" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/nvidia/nvidiaProfileInspector.exe" >NUL 2>&1
 curl -g -k -L -# -o "C:\Windows\Temp\NVIDIA.nip" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/nvidia/NVIDIA.nip" >NUL 2>&1
-reg delete "HKEY_CLASSES_ROOT\Directory\Background\ShellEx\ContextMenuHandlers\NvCplDesktopContext" /f 
-reg add "HKCR\Directory\Background\shell\Item0" /v "MUIVerb" /t REG_SZ /d "NVIDIA Control Panel" /f
-reg add "HKCR\Directory\Background\shell\Item0" /v "Icon" /t REG_SZ /d "%appdata%\nvcpl.dll,0" /f
-reg add "HKCR\Directory\Background\shell\Item0\command" /ve /t REG_SZ /d "%appdata%\nvcplui.exe" /f
+reg delete "HKEY_CLASSES_ROOT\Directory\Background\ShellEx\ContextMenuHandlers\NvCplDesktopContext" /f  >NUL 2>&1
+reg add "HKCR\Directory\Background\shell\Item0" /v "MUIVerb" /t REG_SZ /d "NVIDIA Control Panel" /f >NUL 2>&1
+reg add "HKCR\Directory\Background\shell\Item0" /v "Icon" /t REG_SZ /d "%appdata%\nvcpl.dll,0" /f >NUL 2>&1
+reg add "HKCR\Directory\Background\shell\Item0\command" /ve /t REG_SZ /d "%appdata%\nvcplui.exe" /f >NUL 2>&1
 
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnableRID61684" /t REG_DWORD /d "1" /f >NUL 2>&1
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnablePreemption" /t REG_DWORD /d "0" /f >NUL 2>&1
@@ -453,7 +453,6 @@ reg add "HKLM\Software\Microsoft\ServerManager" /v "DoNotOpenServerManagerAtLogo
 reg add "HKCU\Software\Microsoft\ServerManager" /v "CheckedUnattendLaunchSetting" /t REG_DWORD /d "0" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableCAD" /t REG_DWORD /d "1" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Reliability" /v "ShutdownReasonUI" /t REG_DWORD /d "0" /f >NUL 2>&1
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v "ComplexityRequired" /t REG_DWORD /d "0" /f >NUL 2>&1
 
 :: AMIT Tweaks
 reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d "0" /f >NUL 2>&1
