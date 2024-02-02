@@ -2475,7 +2475,8 @@ reg add "HKLM\System\CurrentControlSet\Services\cbdhsvc" /v "Start" /t REG_DWORD
 reg add "HKLM\System\CurrentControlSet\Services\RemoteRegistry" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\WinRM" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\W32Time /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
-reg add "HKLM\System\CurrentControlSet\Services\Sysmain /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\SysMain /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\BITS /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\Schedule" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 
 :: FemboyOS Signatures
