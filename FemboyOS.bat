@@ -2112,6 +2112,8 @@ powershell Restart-NetAdapter -Name "Ethernet" -ErrorAction SilentlyContinue
 
 :: Tweaking BCDEdit
 net accounts /maxpwage:unlimited >NUL 2>&1
+bcdedit /set linearaddress57 OptOut >NUL 2>&1
+bcdedit /set increaseuserva 268435328 >NUL 2>&1
 bcdedit /deletevalue useplatformclock >NUL 2>&1
 bcdedit /deletevalue useplatformtick >NUL 2>&1
 bcdedit /set tscsyncpolicy Enchanced >NUL 2>&1
