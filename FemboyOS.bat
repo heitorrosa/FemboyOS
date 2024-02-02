@@ -419,6 +419,8 @@ Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\Parameters" /v "Thr
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisablePreemption" /t REG_DWORD /d "1" /f >NUL 2>&1
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisableCudaContextPreemption" /t REG_DWORD /d "1" /f >NUL 2>&1
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Scheduler" /v "EnablePreemption" /t REG_DWORD /d "0" /f >NUL 2>&1
+Reg.exe add "HKCU\Software\NVIDIA Corporation\NvTray" /v "StartOnLogin" /t REG_DWORD /d "0" /f >NUL 2>&1
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnableGR535" /t REG_DWORD /d "0" /f >NUL 2>&1
 C:\Windows\Temp\nvidiaProfileInspector.exe -SilentImport C:\Windows\Temp\NVIDIA.nip >NUL 2>&1
 goto Tweaks
 
@@ -453,6 +455,9 @@ reg add "HKLM\Software\Microsoft\ServerManager" /v "DoNotOpenServerManagerAtLogo
 reg add "HKCU\Software\Microsoft\ServerManager" /v "CheckedUnattendLaunchSetting" /t REG_DWORD /d "0" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableCAD" /t REG_DWORD /d "1" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Reliability" /v "ShutdownReasonUI" /t REG_DWORD /d "0" /f >NUL 2>&1
+
+:: Setup TimerResolution (Only effective in Server 2022 and Windows 11)
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t REG_DWORD /d "1" /f >NUL 2>&1
 
 :: AMIT Tweaks
 reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d "0" /f >NUL 2>&1
@@ -1024,6 +1029,63 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting" /v "DoReport"
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v "Disabled" /t REG_DWORD /d "1" /f >NUL 2>&1
 
 :: Tweaking Desktop Window Manager
+reg add "HKCU\Software\Microsoft\Multimedia\Audio" /v "UserDuckingPreference" /t REG_DWORD /d "3" /f >NUL 2>&1
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation" /v "DisableStartupSound" /t REG_DWORD /d "1" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes" /ve /t REG_SZ /d ".None" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\.Default\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\.Default\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\CriticalBatteryAlarm\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\CriticalBatteryAlarm\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\DeviceConnect\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\DeviceConnect\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\DeviceDisconnect\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\DeviceDisconnect\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\DeviceFail\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\DeviceFail\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\FaxBeep\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\FaxBeep\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\LowBatteryAlarm\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\LowBatteryAlarm\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\MailBeep\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\MailBeep\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\MessageNudge\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\MessageNudge\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Default\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Default\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\Notification.IM\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\Notification.IM\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Mail\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Mail\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Proximity\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Proximity\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Reminder\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\Notification.Reminder\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\Notification.SMS\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\Notification.SMS\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\ProximityConnection\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\ProximityConnection\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\SystemAsterisk\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\SystemAsterisk\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\SystemExclamation\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\SystemExclamation\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\SystemHand\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\SystemHand\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\SystemNotification\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\SystemNotification\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\.Default\WindowsUAC\.Current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\.Default\WindowsUAC\.Current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\sapisvr\DisNumbersSound\.current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\sapisvr\DisNumbersSound\.current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\sapisvr\HubOffSound\.current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\sapisvr\HubOffSound\.current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\sapisvr\HubOnSound\.current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\sapisvr\HubOnSound\.current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\sapisvr\HubSleepSound\.current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\sapisvr\HubSleepSound\.current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\sapisvr\MisrecoSound\.current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\sapisvr\MisrecoSound\.current" /f >NUL 2>&1
+Reg.exe delete "HKCU\AppEvents\Schemes\Apps\sapisvr\PanelSound\.current" /f >NUL 2>&1
+Reg.exe add "HKCU\AppEvents\Schemes\Apps\sapisvr\PanelSound\.current" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC" /v "EnableMtcUvc" /t REG_DWORD /d "0" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe" /v "Debugger" /t REG_SZ /d "\"C:\WINDOWS\PROCEXP.EXE\"" /f >NUL 2>&1
 REG ADD "HKCU\SOFTWARE\Sysinternals\Process Explorer" /v "EulaAccepted" /t REG_DWORD /d "1" /f >NUL 2>&1
