@@ -455,6 +455,10 @@ reg add "HKLM\Software\Microsoft\ServerManager" /v "DoNotOpenServerManagerAtLogo
 reg add "HKCU\Software\Microsoft\ServerManager" /v "CheckedUnattendLaunchSetting" /t REG_DWORD /d "0" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableCAD" /t REG_DWORD /d "1" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Reliability" /v "ShutdownReasonUI" /t REG_DWORD /d "0" /f >NUL 2>&1
+sc start Audiosrv >NUL 2>&1
+sc start AudioEndpointBuilder >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Audiosrv" /v "Start" /t REG_DWORD /d "2" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AudioEndpointBuilder" /v "Start" /t REG_DWORD /d "2" /f >NUL 2>&1
 
 :: Setup TimerResolution (Only effective in Server 2022 and Windows 11)
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t REG_DWORD /d "1" /f >NUL 2>&1
