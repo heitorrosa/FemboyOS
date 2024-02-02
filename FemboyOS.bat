@@ -63,7 +63,7 @@ echo     !ESC![95m You can get the code from this script at @heitorrosa at Githu
 echo.
 echo                        !ESC![96mInstall your GPU drivers!ESC![0m
 timeout /t 5 /nobreak >NUL 2>&1
-start https://github.com/heitorrosa/FemboyOS#installing-gpu-drivers >NUL 2>&1
+"%userprofile%\AppData\Local\Thorium\Application\thorium.exe" https://github.com/heitorrosa/FemboyOS#installing-gpu-drivers >NUL 2>&1
 echo.
 echo.
 pause
