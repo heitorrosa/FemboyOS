@@ -446,6 +446,10 @@ echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "XHCI I
 curl -g -k -L -# -o "C:\Disable-Driver-Power-Saving.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/Disable-Driver-Power-Saving.ps1" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Disable Driver Powersaving" /t REG_SZ /d "powershell C:\Disable-Driver-Power-Saving.ps1" /f >NUL 2>&1
 
+:: Cleanup Unused Devices
+curl -g -k -L -# -o "C:\DeviceCleanup.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DeviceCleanup.ps1" >NUL 2>&1
+echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DeviceCleanup" /t REG_SZ /d "powershell C:\DeviceCleanup.ps1" /f >NUL 2>&1
+
 :: DWM Realtime
 curl -g -k -L -# -o "C:\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DWM-Realtime.bat" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DWM Realtime" /t REG_SZ /d "C:\DWM-Realtime.bat" /f >NUL 2>&1
