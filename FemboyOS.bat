@@ -28,18 +28,25 @@ echo  !ESC![95m╚═╝     ╚══════╝╚═╝     ╚═╝╚�
 echo     !ESC![95m You can get the code from this script at @heitorrosa at Github!ESC![0m
 echo.
 echo                       !ESC![96mInstalling required packages!ESC![0m
+
+:: Installing Chocolatey (Thanks couleur)
+powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) >NUL 2>&1
+timeout /t 5 /nobreak >NUL 2>&1
 :: Installing Thorium
 curl -g -k -L -# -o "C:\Windows\Temp\Thorium.exe" "https://github.com/Alex313031/Thorium-Win/releases/latest/download/thorium_AVX2_mini_installer.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\Thorium.exe /S" >NUL 2>&1
-
+timeout /t 5 /nobreak >NUL 2>&1
 
 :: Installing VisualCpp
 curl -g -k -L -# -o "C:\Windows\Temp\VisualCpp.exe" "https://github.com/abbodi1406/vcredist/releases/download/v0.77.0/VisualCppRedist_AIO_x86_x64.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\VisualCpp.exe /aiA " >NUL 2>&1
+timeout /t 5 /nobreak >NUL 2>&1
 
 :: Installing DirectX
 curl -g -k -L -# -o "C:\Windows\Temp\DirectX.exe" "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\DirectX.exe /Q" >NUL 2>&1
+timeout /t 5 /nobreak >NUL 2>&1
 
 :: Installing 7zip
 curl -g -k -L -# -o "C:\Windows\Temp\7zip.exe" "https://www.7-zip.org/a/7z2301-x64.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\7zip.exe /S" >NUL 2>&1
+timeout /t 5 /nobreak >NUL 2>&1
 REM Importing Context Menu
 reg add HKCU\SOFTWARE\7-Zip\FM\Columns /v RootFolder /t REG_BINARY /d 01,00,00,00,00,00,00,00,01,00,00,00,04,00,00,00,01,00,00,00,a0,00,00,00 /f >NUL 2>&1
 reg add HKCU\SOFTWARE\7-Zip\Options /v CascadeMenu /t REG_DWORD /d 0 /f >NUL 2>&1
@@ -2303,19 +2310,18 @@ powercfg /setactive scheme_current >NUL 2>&1
 :: Disabling Drivers
 
 for %%a in (
-    "EnhancedPowerManagementEnabled"
-    "AllowIdleIrpInD3"
-    "EnableSelectiveSuspend"
-    "DeviceSelectiveSuspended"
-    "SelectiveSuspendEnabled"
-    "SelectiveSuspendOn"
-    "WaitWakeEnabled"
-    "D3ColdSupported"
-    "WdfDirectedPowerTransitionEnable"
-    "EnableIdlePowerManagement"
-    "IdleInWorkingState"
+    "EnhancedPowerManagementEnabled" > nul 2>&1
+    "AllowIdleIrpInD3" > nul 2>&1
+    "EnableSelectiveSuspend" > nul 2>&1
+    "DeviceSelectiveSuspended" > nul 2>&1
+    "SelectiveSuspendEnabled" > nul 2>&1
+    "SelectiveSuspendOn" > nul 2>&1
+    "WaitWakeEnabled" > nul 2>&1
+    "D3ColdSupported" > nul 2>&1
+    "WdfDirectedPowerTransitionEnable" > nul 2>&1
+    "EnableIdlePowerManagement" > nul 2>&1
+    "IdleInWorkingState" > nul 2>&1
 ) do (
-    echo info: configuring %%~a
     for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "%%~a" ^| findstr "HKEY"') do (
         reg.exe add "%%b" /v "%%~a" /t REG_DWORD /d "0" /f > nul 2>&1
     )
