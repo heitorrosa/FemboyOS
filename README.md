@@ -2,7 +2,7 @@
 FemboyOS is an open-source custom Windows OS alternative based on Windows 10 Server 2022 and has a lot of debloats and optimizations for your system, with automatic updates from the repository in the installation.
 #
 [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-gray?style=for-the-badge&logo=download&logoColor=white "Download zip")]()
-* [**Stock ISO for Windows 10 IoT Enterprise 21H2**](https://dl.bobpony.com/windows/10/en-us_windows_10_iot_enterprise_ltsc_2021_x64_dvd_257ad90f.iso) (Required for the raw installation video)
+* [**Stock ISO for Windows 10 Server 2022**](https://archive.org/details/en-us_windows_server_version_2022)
 #
 
 ## Installing GPU Drivers
@@ -21,7 +21,7 @@ FemboyOS is an open-source custom Windows OS alternative based on Windows 10 Ser
 
 <details closed>
 <br>
-<summary><h3>AMD Drivers</h3></summary>
+<summary><h3>AMD Drivers (Prob wont work)</h3></summary>
 1. <a href="https://github.com/GSDragoon/RadeonSoftwareSlimmer/releases/latest">Install Radeon Software Slimmer</a>
 <br><br>
 2. Download the latest driver for your GPU in AMD website
@@ -60,7 +60,7 @@ FemboyOS is an open-source custom Windows OS alternative based on Windows 10 Ser
 ## **[Hone](https://github.com/auraside/Hone) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
 
 ### Credits for some tweaks
-* Melody [(Provided the raw guide without most of the tweaks)](https://www.youtube.com/embed/F_4BPuqn0_o)
+* Melody
 * Felipetweaks
 * AMITXV
 * imribiy
