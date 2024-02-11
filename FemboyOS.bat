@@ -2310,17 +2310,17 @@ powercfg /setactive scheme_current >NUL 2>&1
 :: Disabling Drivers
 
 for %%a in (
-    "EnhancedPowerManagementEnabled" > nul 2>&1
-    "AllowIdleIrpInD3" > nul 2>&1
-    "EnableSelectiveSuspend" > nul 2>&1
-    "DeviceSelectiveSuspended" > nul 2>&1
-    "SelectiveSuspendEnabled" > nul 2>&1
-    "SelectiveSuspendOn" > nul 2>&1
-    "WaitWakeEnabled" > nul 2>&1
-    "D3ColdSupported" > nul 2>&1
-    "WdfDirectedPowerTransitionEnable" > nul 2>&1
-    "EnableIdlePowerManagement" > nul 2>&1
-    "IdleInWorkingState" > nul 2>&1
+    "EnhancedPowerManagementEnabled"
+    "AllowIdleIrpInD3"
+    "EnableSelectiveSuspend"
+    "DeviceSelectiveSuspended"
+    "SelectiveSuspendEnabled"
+    "SelectiveSuspendOn"
+    "WaitWakeEnabled"
+    "D3ColdSupported"
+    "WdfDirectedPowerTransitionEnable"
+    "EnableIdlePowerManagement"
+    "IdleInWorkingState"
 ) do (
     for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "%%~a" ^| findstr "HKEY"') do (
         reg.exe add "%%b" /v "%%~a" /t REG_DWORD /d "0" /f > nul 2>&1
