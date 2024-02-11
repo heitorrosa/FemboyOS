@@ -461,6 +461,11 @@ echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Device
 curl -g -k -L -# -o "C:\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/DWM-Realtime.bat" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DWM Realtime" /t REG_SZ /d "C:\DWM-Realtime.bat" /f >NUL 2>&1
 
+:: Setup TimerResolution (Only effective in Server 2022 and Windows 11)
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t REG_DWORD /d "1" /f >NUL 2>&1
+curl -g -k -L -# -o "C:\TimerResolution.exe" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/TimerResolution.exe" >NUL 2>&1
+echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResoltuion" /t REG_SZ /d "C:\TimerResolution.exe --resolution 5070 --no-console" /f >NUL 2>&1
+
 :: Configure Server 2022
 reg add "HKLM\Software\Microsoft\ServerManager" /v "DoNotOpenServerManagerAtLogon" /t REG_DWORD /d "1" /f >NUL 2>&1
 reg add "HKCU\Software\Microsoft\ServerManager" /v "CheckedUnattendLaunchSetting" /t REG_DWORD /d "0" /f >NUL 2>&1
@@ -470,9 +475,6 @@ sc start Audiosrv >NUL 2>&1
 sc start AudioEndpointBuilder >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\Audiosrv" /v "Start" /t REG_DWORD /d "2" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\AudioEndpointBuilder" /v "Start" /t REG_DWORD /d "2" /f >NUL 2>&1
-
-:: Setup TimerResolution (Only effective in Server 2022 and Windows 11)
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t REG_DWORD /d "1" /f >NUL 2>&1
 
 :: AMIT Tweaks
 reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d "0" /f >NUL 2>&1
