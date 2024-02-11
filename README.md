@@ -1,4 +1,4 @@
-# **FemboyOS IoT LTSC**
+# **FemboyOS**
 FemboyOS is an open-source custom Windows OS alternative based on Windows 10 Server 2022 and has a lot of debloats and optimizations for your system, with automatic updates from the repository in the installation.
 #
 [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-gray?style=for-the-badge&logo=download&logoColor=white "Download zip")]()
