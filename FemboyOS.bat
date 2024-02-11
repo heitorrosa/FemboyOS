@@ -217,8 +217,8 @@ goto Tweaks
 :: Credits Matishzz
 powershell (new-object System.Net.WebClient).DownloadFile('https://github.com/Matishzz/DCH-ControlPanel/releases/download/nvcplui/nvcpl.dll','%appdata%\nvcpl.dll') >NUL 2>&1
 powershell (new-object System.Net.WebClient).DownloadFile('https://github.com/Matishzz/DCH-ControlPanel/releases/download/nvcplui/nvcplui.exe','%appdata%\nvcplui.exe') >NUL 2>&1
-curl -g -k -L -# -o "C:\Windows\Temp\nvidiaProfileInspector.exe" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/nvidia/nvidiaProfileInspector.exe" >NUL 2>&1
-curl -g -k -L -# -o "C:\Windows\Temp\NVIDIA.nip" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/nvidia/NVIDIA.nip" >NUL 2>&1
+curl -g -k -L -# -o "C:\Windows\Temp\nvidiaProfileInspector.exe" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/nvidia/nvidiaProfileInspector.exe" >NUL 2>&1
+curl -g -k -L -# -o "C:\Windows\Temp\NVIDIA.nip" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/nvidia/NVIDIA.nip" >NUL 2>&1
 reg delete "HKEY_CLASSES_ROOT\Directory\Background\ShellEx\ContextMenuHandlers\NvCplDesktopContext" /f  >NUL 2>&1
 reg add "HKCR\Directory\Background\shell\Item0" /v "MUIVerb" /t REG_SZ /d "NVIDIA Control Panel" /f >NUL 2>&1
 reg add "HKCR\Directory\Background\shell\Item0" /v "Icon" /t REG_SZ /d "%appdata%\nvcpl.dll,0" /f >NUL 2>&1
@@ -446,19 +446,19 @@ echo                      !ESC![96mApplying System Configurations!ESC![0m
 
 :: XHCI Interrupt Moderation
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
-curl -g -k -L -# -o "C:\XHCI-Interrupt-Moderation.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/XHCI-Interrupt-Moderation.ps1" >NUL 2>&1
+curl -g -k -L -# -o "C:\XHCI-Interrupt-Moderation.ps1" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/XHCI-Interrupt-Moderation.ps1" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "XHCI Interrupt Moderation" /t REG_SZ /d "powershell C:\XHCI-Interrupt-Moderation.ps1" /f >NUL 2>&1
 
 :: Disable Driver Power-Saving
-curl -g -k -L -# -o "C:\Disable-Driver-Power-Saving.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/Disable-Driver-Power-Saving.ps1" >NUL 2>&1
+curl -g -k -L -# -o "C:\Disable-Driver-Power-Saving.ps1" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/Disable-Driver-Power-Saving.ps1" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Disable Driver Powersaving" /t REG_SZ /d "powershell C:\Disable-Driver-Power-Saving.ps1" /f >NUL 2>&1
 
 :: Cleanup Unused Devices
-curl -g -k -L -# -o "C:\DeviceCleanup.ps1" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DeviceCleanup.ps1" >NUL 2>&1
+curl -g -k -L -# -o "C:\DeviceCleanup.ps1" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/DeviceCleanup.ps1" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DeviceCleanup" /t REG_SZ /d "powershell C:\DeviceCleanup.ps1" /f >NUL 2>&1
 
 :: DWM Realtime
-curl -g -k -L -# -o "C:\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/iotltsc/scripts/DWM-Realtime.bat" >NUL 2>&1
+curl -g -k -L -# -o "C:\DWM-Realtime.bat" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/DWM-Realtime.bat" >NUL 2>&1
 echo y | reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DWM Realtime" /t REG_SZ /d "C:\DWM-Realtime.bat" /f >NUL 2>&1
 
 :: Configure Server 2022
