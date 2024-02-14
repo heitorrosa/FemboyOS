@@ -48,6 +48,8 @@ FemboyOS is an open-source custom Windows OS alternative based on Windows 10 Ser
 <br>
 <summary><h3>Affinity Guide</h3></summary>
   
+1. Download [Microsoft Interrupt Affinity Tool](https://www.techpowerup.com/download/microsoft-interrupt-affinity-tool)
+  
 * [GPU and DirectX Graphics Kernel (AutoGpuAffinity)](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#gpu-and-directx-graphics-kernel)
 </details>
 
