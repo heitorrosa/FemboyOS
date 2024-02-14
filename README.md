@@ -59,6 +59,17 @@ FemboyOS is an open-source custom Windows OS alternative based on Windows 10 Ser
 #
 ## **[Hone](https://github.com/auraside/Hone) has much of the tweaks listed above and is easier to setup. Give it a try. 😉**
 
+## Additional Tips
+* Install a Video Player (mpv is recommended)
+ ```bat
+choco install mpv
+```
+* Install a Code Editor (Notepad++ is recommended)
+ ```bat
+choco install notepadplusplus
+```
+
+#
 ### Credits for some tweaks
 * Melody
 * Felipetweaks
