@@ -1973,7 +1973,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\Netman" /v Start /t REG_DWORD /d
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\NetSetupSvc" /v Start /t REG_DWORD /d 2 /f >NUL 2>&1
 sc config NlaSvc DependOnService=NSI RpcSs TcpIp Dhcp LicenseManager  >NUL 2>&1
 
-REM General Settings]
+REM General Settings
 powershell "Set-NetOffloadGlobalSetting -PacketCoalescingFilter disabled" >NUL 2>&1
 netsh winsock reset >NUL 2>&1
 netsh int tcp set supplemental template=custom icw=10 >NUL 2>&1
