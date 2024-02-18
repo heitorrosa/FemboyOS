@@ -1998,8 +1998,6 @@ netsh int tcp set security profiles=disabled >NUL 2>&1
 netsh int tcp set global initialRto=3000 >NUL 2>&1
 netsh int tcp set global maxsynretransmissions=2 >NUL 2>&1
 netsh int tcp set supp internet congestionprovider=newreno >NUL 2>&1
-wmic nicconfig where TcpipNetbiosOptions=0 call SetTcpipNetbios 1 >NUL 2>&1
-wmic nicconfig where TcpipNetbiosOptions=2 call SetTcpipNetbios 1 >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "EnableICMPRedirect" /t REG_DWORD /d "1" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "EnablePMTUDiscovery" /t REG_DWORD /d "1" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "Tcp1323Opts" /t REG_DWORD /d "0" /f >NUL 2>&1
