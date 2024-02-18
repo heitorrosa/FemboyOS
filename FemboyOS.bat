@@ -2058,7 +2058,7 @@ reg add "%%r" /v "*PMNSOffload" /t REG_SZ /d "0" /f >NUL 2>&1
 reg add "%%r" /v "*PriorityVLANTag" /t REG_SZ /d "0" /f >NUL 2>&1
 reg add "%%r" /v "*ReceiveBuffers" /t REG_SZ /d "80" /f >NUL 2>&1
 reg add "%%r" /v "*RSS" /t REG_SZ /d "1" /f >NUL 2>&1
-reg add "%%r" /v "*RssBaseProcNumber" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*RssBaseProcNumber" /t REG_SZ /d "2" /f >NUL 2>&1
 reg add "%%r" /v "*RssMaxProcNumber" /t REG_SZ /d "1" /f >NUL 2>&1
 reg add "%%r" /v "*SpeedDuplex" /t REG_SZ /d "0" /f >NUL 2>&1
 reg add "%%r" /v "*TCPChecksumOffloadIPv4" /t REG_SZ /d "0" /f >NUL 2>&1
