@@ -1967,11 +1967,159 @@ FOR /F "DELIMS=DesktopMonitor, " %%i in ('WMIC PATH Win32_DesktopMonitor GET Dev
 )
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v Display%MonitorAmount%_PipeOptimizationEnable /t REG_DWORD /d "1" /f >NUL 2>&1
 
-:: Optimizing Internet (fixing it soon)
+:: Optimizing Internet
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\netprofm" /v Start /t REG_DWORD /d 2 /f >NUL 2>&1
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\Netman" /v Start /t REG_DWORD /d 2 /f >NUL 2>&1
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\NetSetupSvc" /v Start /t REG_DWORD /d 2 /f >NUL 2>&1
 sc config NlaSvc DependOnService=NSI RpcSs TcpIp Dhcp LicenseManager  >NUL 2>&1
+
+REM General Settings]
+powershell "Set-NetOffloadGlobalSetting -PacketCoalescingFilter disabled" >NUL 2>&1
+netsh winsock reset >NUL 2>&1
+netsh int tcp set supplemental template=custom icw=10 >NUL 2>&1
+netsh interface teredo set state disabled >NUL 2>&1
+netsh interface 6to4 set state disabled >NUL 2>&1
+netsh int isatap set state disable >NUL 2>&1
+netsh int ip set global neighborcachelimit=4096 >NUL 2>&1
+netsh int ip set global taskoffload=disabled >NUL 2>&1
+netsh int ip set global loopbackworkercount = %NUMBER_OF_PROCESSORS% >NUL 2>&1
+netsh int tcp set global autotuninglevel=disable >NUL 2>&1
+netsh int tcp set global chimney=disabled >NUL 2>&1
+netsh int tcp set global dca=enabled >NUL 2>&1
+netsh int tcp set global ecncapability=disabled >NUL 2>&1
+netsh int tcp set global netdma=enabled >NUL 2>&1
+netsh int tcp set global nonsackrttresiliency=disabled >NUL 2>&1
+netsh int tcp set global rsc=disabled >NUL 2>&1
+netsh int tcp set global rss=enabled >NUL 2>&1
+netsh int tcp set global timestamps=disabled >NUL 2>&1
+netsh int tcp set heuristics disabled >NUL 2>&1
+netsh int tcp set security mpp=disabled >NUL 2>&1
+netsh int tcp set security profiles=disabled >NUL 2>&1
+netsh int tcp set global initialRto=3000 >NUL 2>&1
+netsh int tcp set global maxsynretransmissions=2 >NUL 2>&1
+netsh int tcp set supp internet congestionprovider=newreno >NUL 2>&1
+wmic nicconfig where TcpipNetbiosOptions=0 call SetTcpipNetbios 1 >NUL 2>&1
+wmic nicconfig where TcpipNetbiosOptions=2 call SetTcpipNetbios 1 >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "EnableICMPRedirect" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "EnablePMTUDiscovery" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "Tcp1323Opts" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "GlobalMaxTcpWindowSize" /t REG_DWORD /d "5840" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "TcpWindowSize" /t REG_DWORD /d "5840" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "MaxConnectionsPerServer" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "MaxUserPort" /t REG_DWORD /d "65534" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "TcpTimedWaitDelay" /t REG_DWORD /d "32" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "EnablePMTUBHDetect" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "DisableTaskOffload" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "DefaultTTL" /t REG_DWORD /d "64" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "SackOpts" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "TcpMaxDupAcks" /t REG_DWORD /d "2" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters\Winsock" /v "UseDelayedAcceptance" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters\Winsock" /v "MaxSockAddrLength" /t REG_DWORD /d "16" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters\Winsock" /v "MinSockAddrLength" /t REG_DWORD /d "16" /f >NUL 2>&1
+reg add "HKLM\Software\Microsoft\MSMQ\Parameters" /v "TCPNoDelay" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\Software\Policies\Microsoft\Windows\Psched" /v "MaxOutstandingSends" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\Software\Policies\Microsoft\Windows\Psched" /v "NonBestEffortLimit" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\Software\Policies\Microsoft\Windows\Psched" /v "TimerResolution" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\Software\WOW6432Node\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_MAXCONNECTIONSPER1_0SERVER" /v "explorer.exe" /t REG_DWORD /d "10" /f >NUL 2>&1
+reg add "HKLM\Software\WOW6432Node\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_MAXCONNECTIONSPER1_0SERVER" /v "iexplore.exe" /t REG_DWORD /d "10" /f >NUL 2>&1
+reg add "HKLM\Software\WOW6432Node\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_MAXCONNECTIONSPERSERVER" /v "explorer.exe" /t REG_DWORD /d "10" /f >NUL 2>&1
+reg add "HKLM\Software\WOW6432Node\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_MAXCONNECTIONSPERSERVER" /v "iexplore.exe" /t REG_DWORD /d "10" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\ServiceProvider" /v "DnsPriority" /t REG_DWORD /d "6" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\ServiceProvider" /v "HostsPriority" /t REG_DWORD /d "5" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\ServiceProvider" /v "LocalPriority" /t REG_DWORD /d "4" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\ServiceProvider" /v "NetbtPriority" /t REG_DWORD /d "7" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "DefaultReceiveWindow" /t REG_DWORD /d "16384" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "DefaultSendWindow" /t REG_DWORD /d "16384" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "DisableRawSecurity" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "DynamicSendBufferDisable" /t REG_DWORD /d "0" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "FastCopyReceiveThreshold" /t REG_DWORD /d "16384" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "FastSendDatagramThreshold" /t REG_DWORD /d "16384" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "IgnorePushBitOnReceives" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\AFD\Parameters" /v "NonBlockingSendSpecialBuffering" /t REG_DWORD /d "1" /f >NUL 2>&1
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip6\Parameters" /v "DisabledComponents" /t REG_DWORD /d "255" /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Private" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Unidentified Network" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Network List Manager\Profiles\Identifying Network" /v Category /t REG_DWORD /d 2 /f >NUL 2>&1
+for /f %%i in ('wmic path win32_networkadapter get GUID ^| findstr "{"') do REG ADD "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\%%i" /v TcpAckFrequency /t REG_DWORD /d 1 /f >NUL 2>&1
+for /f %%i in ('wmic path win32_networkadapter get GUID ^| findstr "{"') do REG ADD "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\%%i" /v TcpDelAckTicks /t REG_DWORD /d 0 /f >NUL 2>&1
+for /f %%i in ('wmic path win32_networkadapter get GUID ^| findstr "{"') do REG ADD "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\%%i" /v TCPNoDelay /t REG_DWORD /d 1 /f >NUL 2>&1
+
+REM Adapter Settings
+for /f %%r in ('reg query "HKLM\SYSTEM\ControlSet001\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}" /f "PCI\VEN" /d /s^|Findstr HKEY') do (
+reg add "%%r" /v "*EEE" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*FlowControl" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*InterruptModeration" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*JumboPacket" /t REG_SZ /d "1415" /f >NUL 2>&1
+reg add "%%r" /v "*LsoV1IPv4" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*LsoV2IPv4" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*LsoV2IPv6" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*ModernStandbyWoLMagicPacket" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*NumRssQueues" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*PMARPOffload" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*PMNSOffload" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*PriorityVLANTag" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*ReceiveBuffers" /t REG_SZ /d "80" /f >NUL 2>&1
+reg add "%%r" /v "*RSS" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*RssBaseProcNumber" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*RssMaxProcNumber" /t REG_SZ /d "1" /f >NUL 2>&1
+reg add "%%r" /v "*SpeedDuplex" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*TCPChecksumOffloadIPv4" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*TCPChecksumOffloadIPv6" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*TransmitBuffers" /t REG_SZ /d "80" /f >NUL 2>&1
+reg add "%%r" /v "*WakeOnMagicPacket" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "*WakeOnPattern" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "AdvancedEEE" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "AutoDisableGigabit" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "EEELinkAdvertisement" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "EnableGreenEthernet" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "EnablePME" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "EnableTss" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "GigaLite" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "ITR" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "LogLinkStateEvent" /t REG_SZ /d "51" /f >NUL 2>&1
+reg add "%%r" /v "MasterSlave" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "PowerSavingMode" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "ReduceSpeedOnPowerDown" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "S5WakeOnLan" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "TxIntDelay" /t REG_SZ /d "5" /f >NUL 2>&1
+reg add "%%r" /v "ULPMode" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "WaitAutoNegComplete" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "WakeOnLink" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "WakeOnSlot" /t REG_SZ /d "0" /f >NUL 2>&1
+reg add "%%r" /v "WolShutdownLinkSpeed" /t REG_SZ /d "2" /f >NUL 2>&1
+)
+
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_lldp -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_lltdio -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_msclient -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_rspndr -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_implat -ErrorAction SilentlyContinue
+powershell Set-NetTCPSetting -SettingName internet -ScalingHeuristics disabled -ErrorAction SilentlyContinue
+powershell Set-NetTCPSetting -SettingName internet -MinRto 300 -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterEncapsulatedPacketTaskOffload -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterIPsecOffload -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterChecksumOffload -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterLso -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterRsc -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterPowerManagement -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterQos -Name "*" -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_pacer -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_pppoe -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_rdma_ndk -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_ndisuio -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_wfplwf_upper -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_wfplwf_lower -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_netbt -ErrorAction SilentlyContinue
+powershell Disable-NetAdapterBinding -Name "*" -ComponentID ms_netbios -ErrorAction SilentlyContinue
+FOR /F %%a in ('REG QUERY "HKLM\System\CurrentControlSet\Services\Psched\Parameters\Adapters"') DO ( 
+REG DELETE %%a /F >NUL 2>&1
+FOR /F "tokens=*" %%z IN ("%%a") DO (
+SET STR=%%z
+SET STR=!STR:HKLM\System\CurrentControlSet\Services\Psched\Parameters\Adapters\=!
+)
+)
+
+powershell Restart-NetAdapter -Name "Ethernet" -ErrorAction SilentlyContinue
 
 
 :: Tweaking BCDEdit
