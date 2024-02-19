@@ -2480,7 +2480,7 @@ devmanview /disable "WAN Miniport (SSTP)" >NUL 2>&1
 devmanview /disable "WAN Miniport (Network Monitor)" >NUL 2>&1
 devmanview /disable "Root Print Queue" >NUL 2>&1
 
-:: Services Tweaks
+:: Services Tweaks (Breaks Minecraft Servers)
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f >NUL 2>&1
 reg add "HKLM\SYSTEM\CurrentControlSet\Control" /v SvcHostSplitThresholdInKB /t REG_DWORD /d ffffffff /f >NUL 2>&1
 :: reg add "HKLM\System\CurrentControlSet\Services\" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
