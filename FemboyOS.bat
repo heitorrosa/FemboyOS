@@ -2516,6 +2516,12 @@ devmanview /disable "Root Print Queue" >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f >NUL 2>&1
 reg add "HKLM\SYSTEM\CurrentControlSet\Control" /v SvcHostSplitThresholdInKB /t REG_DWORD /d ffffffff /f >NUL 2>&1
 :: reg add "HKLM\System\CurrentControlSet\Services\" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
+mkdir C:\services >NUL 2>&1
+timeout /t 2 /nobreak >NUL 2>&1
+curl -g -k -L -# -o "C:\services\services.ini" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/services.ini" >NUL 2>&1
+curl -g -k -L -# -o "C:\services\service-list-builder.exe" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/service-list-builder.exe" >NUL 2>&1
+timeout /t 2 /nobreak >NUL 2>&1
+C:\services\service-list-builder.exe --config "C:\services\services.ini" --disable_service_warning >NUL 2>&1
 
 
 :: FemboyOS Signatures
