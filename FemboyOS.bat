@@ -1576,8 +1576,8 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\StorNVMe\Parameters\Device" /v "H
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\StorNVMe\Parameters\Device" /v "ArbitrationBurst" /t REG_DWORD /d "256" /f >NUL 2>&1
 powershell -Command "Disable-MMAgent -PageCombining" >NUL 2>&1
 powershell -Command "Disable-MMAgent -MemoryCompression" >NUL 2>&1
-powershell Start-Process -FilePath "C:\nvme\ImportCertificate.cmd" >NUL 2>&1
-powershell -Command "pnputil /add-driver "C:\nvme\secnvme.inf" /install" >NUL 2>&1
+C:\nvme\ImportCertificate.cmd >NUL 2>&1
+pnputil /add-driver "C:\nvme\secnvme.inf" /install >NUL 2>&1
 
 :: Win32PrioritySeparation (Please use the Win32PrioritySeparation Benchmarker)
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d "36" /f >NUL 2>&1
