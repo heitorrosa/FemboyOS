@@ -2522,7 +2522,7 @@ C:\services\service-list-builder.exe --config "C:\services\services.ini" --disab
 
 :: FemboyOS Signatures
 reg add "HKCR\Directory\background\shell\Item2" /v "MUIVerb" /t REG_SZ /d "FemboyOS @ heitorrosa" /f >NUL 2>&1
-reg add "HKCR\Directory\background\shell\Item2\command" /ve /t REG_SZ /d "C:\Windows\System32\minsudo.exe --System --TrustedInstaller --Privileged cmd" /f >NUL 2>&1
+reg add "HKCR\Directory\background\shell\Item2\command" /ve /t REG_SZ /d "C:\Windows\System32\minsudo.exe --System --TrustedInstaller --Privileged" /f >NUL 2>&1
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOrganization" /t REG_SZ /d "FemboyOS @heitorrosa" /f >NUL 2>&1
 
 shutdown -r -t 0
