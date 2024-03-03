@@ -47,7 +47,8 @@ timeout /t 5 /nobreak >NUL 2>&1
 :: Installing 7zip
 curl -g -k -L -# -o "C:\Windows\Temp\7zip.exe" "https://www.7-zip.org/a/7z2301-x64.exe" >NUL 2>&1 & powershell Start-Process -FilePath "C:\Windows\Temp\7zip.exe /S" >NUL 2>&1
 timeout /t 5 /nobreak >NUL 2>&1
-REM Importing Context Menu
+
+:: Importing 7zip Context Menu
 reg add HKCU\SOFTWARE\7-Zip\FM\Columns /v RootFolder /t REG_BINARY /d 01,00,00,00,00,00,00,00,01,00,00,00,04,00,00,00,01,00,00,00,a0,00,00,00 /f >NUL 2>&1
 reg add HKCU\SOFTWARE\7-Zip\Options /v CascadeMenu /t REG_DWORD /d 0 /f >NUL 2>&1
 reg add HKCU\SOFTWARE\7-Zip\Options /v ContextMenu /t REG_DWORD /d 261 /f >NUL 2>&1
@@ -55,6 +56,8 @@ reg add HKCU\SOFTWARE\7-Zip\Options /v CascadedMenu /t REG_DWORD /d 0 /f >NUL 2>
 reg add HKCU\SOFTWARE\7-Zip\Options /v MenuIcons /t REG_DWORD /d 1 /f >NUL 2>&1
 reg add HKCU\SOFTWARE\7-Zip\Options /v ElimDupExtract /t REG_DWORD /d 1 /f >NUL 2>&1
 timeout /t 5 /nobreak >NUL 2>&1
+
+:: Importing OpenShell Settings
 cls
 
 :GPUDriver
@@ -214,15 +217,8 @@ sc config "AMD External Events Utility" start=disabled > nul 2>&1
 goto Tweaks
 
 :NVIDIA
-:: Credits Matishzz
-powershell (new-object System.Net.WebClient).DownloadFile('https://github.com/Matishzz/DCH-ControlPanel/releases/download/nvcplui/nvcpl.dll','%appdata%\nvcpl.dll') >NUL 2>&1
-powershell (new-object System.Net.WebClient).DownloadFile('https://github.com/Matishzz/DCH-ControlPanel/releases/download/nvcplui/nvcplui.exe','%appdata%\nvcplui.exe') >NUL 2>&1
 curl -g -k -L -# -o "C:\Windows\Temp\nvidiaProfileInspector.exe" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/nvidia/nvidiaProfileInspector.exe" >NUL 2>&1
 curl -g -k -L -# -o "C:\Windows\Temp\NVIDIA.nip" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/nvidia/NVIDIA.nip" >NUL 2>&1
-reg delete "HKEY_CLASSES_ROOT\Directory\Background\ShellEx\ContextMenuHandlers\NvCplDesktopContext" /f  >NUL 2>&1
-reg add "HKCR\Directory\Background\shell\Item0" /v "MUIVerb" /t REG_SZ /d "NVIDIA Control Panel" /f >NUL 2>&1
-reg add "HKCR\Directory\Background\shell\Item0" /v "Icon" /t REG_SZ /d "%appdata%\nvcpl.dll,0" /f >NUL 2>&1
-reg add "HKCR\Directory\Background\shell\Item0\command" /ve /t REG_SZ /d "%appdata%\nvcplui.exe" /f >NUL 2>&1
 
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnableRID61684" /t REG_DWORD /d "1" /f >NUL 2>&1
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnablePreemption" /t REG_DWORD /d "0" /f >NUL 2>&1
