@@ -2194,10 +2194,6 @@ bcdedit /set tpmbootentropy ForceDisable >NUL 2>&1
 bcdedit /set bootmenupolicy Legacy >NUL 2>&1
 
 
-
-REM Reverseble Tweaks into FemboyOS Control Panel
-
-
 :: Disable Hyper-V
 reg add "HKLM\System\CurrentControlSet\Services\vmickvpexchange" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 reg add "HKLM\System\CurrentControlSet\Services\vmicguestinterface" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
