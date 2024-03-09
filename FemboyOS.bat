@@ -2509,11 +2509,9 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPla
 :: reg add "HKLM\System\CurrentControlSet\Services\" /v "Start" /t REG_DWORD /d "4" /f >NUL 2>&1
 
 curl -g -k -L -# -o "C:\Windows\Temp\services.zip" "https://github.com/amitxv/service-list-builder/releases/latest/download/service-list-builder.zip" >NUL 2>&1 
-powershell -Command "Expand-Archive -Path "C:\Windows\Temp\services.zip" -DestinationPath "%userprofile%\Desktop" -Force
-timeout /t 2 /nobreak >NUL 2>&1
+powershell -Command "Expand-Archive -Path "C:\Windows\Temp\services.zip" -DestinationPath "%userprofile%\Desktop" -Force >NUL 2>&1
 curl -g -k -L -# -o "%userprofile%\Desktop\services.ini" "https://github.com/heitorrosa/FemboyOS/raw/femboyos/scripts/services.ini" >NUL 2>&1
-timeout /t 2 /nobreak >NUL 2>&1
-%userprofile%\Desktop\service-list-builder\service-list-builder.exe --config "%userprofile%\Desktop\services.ini" --disable-service-warning
+%userprofile%\Desktop\service-list-builder\service-list-builder.exe --config "%userprofile%\Desktop\services.ini" --disable-service-warning >NUL 2>&1
 
 :: FemboyOS Signatures
 reg add "HKCR\Directory\background\shell\Item2" /v "MUIVerb" /t REG_SZ /d "FemboyOS @ heitorrosa" /f >NUL 2>&1
